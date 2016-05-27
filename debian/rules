@@ -1,0 +1,54 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with python2 --buildsystem=python_distutils
+
+
+override_dh_auto_clean:
+	rm -rf ka_lite_static.egg-info
+	python setup.py clean -a
+	find . -name \*.pyc -exec rm {} \;
+
+
+
+override_dh_auto_build:
+	python setup.py build --force
+
+
+
+override_dh_auto_install:
+	# Our own tests
+	debian/test_build_sanity.sh
+	# Build ka-lite
+	python setup.py install --force --root=debian/ka-lite --no-compile -O0 --install-layout=deb  
+	dh_installman
+	# Copy the ka-lite build to ka-lite-raspberry-pi instead of re-building
+	cp -rup debian/ka-lite/usr debian/ka-lite-raspberry-pi/
+	# Copy the ka-lite build to ka-lite-bundle instead of re-building
+	cp -rup debian/ka-lite/usr debian/ka-lite-bundle/
+	# Prepare assessment items
+	bash -c debian/prepare_assessment_items.sh
+
+
+
+# using dh-exec
+override_dh_install:
+	dh_install --fail-missing
+
+
+ifeq ($(filter stage1,$(DEB_BUILD_PROFILES)),)
+override_dh_installdeb:
+	dh_installdeb
+	perl -w debian/dh_installscripts-common -p ka-lite -p ka-lite-raspberry-pi -p ka-lite-bundle
+endif
+
+# This is commented out because we depend on user input
+# before actually installing
+# override_dh_installinit:
+# 	dh_installinit
+
+
+override_dh_python2:
+	dh_python2 --no-guessing-versions
+
+

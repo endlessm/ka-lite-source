@@ -1,0 +1,246 @@
+ka-lite-source (0.16.5-0ubuntu1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Mon, 02 May 2016 23:21:18 +0200
+
+ka-lite-source (0.16.4-0ubuntu1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Fri, 29 Apr 2016 22:07:32 +0200
+
+ka-lite-source (0.16.3-0ubuntu2) trusty; urgency=medium
+
+  * Nginx config served wrong path for some static items
+  * Upgrading did not correctly reset URL of assessment items
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Tue, 26 Apr 2016 17:40:53 +0200
+
+ka-lite-source (0.16.3-0ubuntu1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Mon, 25 Apr 2016 17:35:55 +0200
+
+ka-lite-source (0.16.2-0ubuntu2) trusty; urgency=medium
+
+  * Fix upgrade: Auto update assessment item URL if it was set to a learningequality.org domain
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Wed, 20 Apr 2016 15:24:44 +0200
+
+ka-lite-source (0.16.2-0ubuntu1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Fri, 15 Apr 2016 14:15:30 +0200
+
+ka-lite-source (0.16.1-0ubuntu1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Aron Fyodor Asor <aron@learningequality.org>  Thu, 07 Apr 2016 21:10:51 +0000
+
+ka-lite-source (0.16.0-0ubuntu1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Thu, 31 Mar 2016 00:14:54 +0200
+
+ka-lite-source (0.15.1-0ubuntu2) precise; urgency=medium
+
+  * Add missing nginx configuration file for custom kalite user account
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Sun, 06 Dec 2015 00:34:49 +0100
+
+ka-lite-source (0.15.1-0ubuntu1) precise; urgency=medium
+
+  * New 0.15.1 upstream release
+  * Add new username suggestion for non-sudo envs (e.g. Software Center)
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Wed, 02 Dec 2015 20:11:43 +0100
+
+ka-lite-source (0.15.0-0ubuntu4) precise; urgency=medium
+
+  * Move ka-lite-gtk from Recommends to Suggests
+  * Track states during install to avoid asking same questions and resetting defaults
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Wed, 25 Nov 2015 19:24:53 +0100
+
+ka-lite-source (0.15.0-0ubuntu3) precise; urgency=medium
+
+  * Fix error in url file for resuming downloads
+  * Add debug output for config script
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Sun, 15 Nov 2015 13:49:32 +0100
+
+ka-lite-source (0.15.0-0ubuntu2) precise; urgency=medium
+
+  * Refactored debian maintainer scripts
+  * Added new RPI friendly settings
+  * Better instructions in debconf
+  * Fixed possible errors during upgrade or borked downloads
+  * 
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Thu, 22 Oct 2015 23:40:05 +0200
+
+ka-lite-source (0.15.0-0ubuntu1) precise; urgency=medium
+
+  * New final upstream release
+  * Adding man pages
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Wed, 14 Oct 2015 01:11:52 +0200
+
+ka-lite-source (0.15~b5-0ubuntu2) precise; urgency=medium
+
+  * Adding instructions for low disk space in cases of downloading assessment items
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Tue, 13 Oct 2015 17:56:44 +0200
+
+ka-lite-source (0.15~b5-0ubuntu1) precise; urgency=medium
+
+  * New upstream release
+  * Prepare source pkg assessment items from 0.15 location
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Tue, 13 Oct 2015 00:50:37 +0200
+
+ka-lite-source (0.15~b3-0ubuntu1) precise; urgency=medium
+
+  * New upstream release
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Fri, 02 Oct 2015 13:29:40 +0200
+
+ka-lite-source (0.15~b2-0ubuntu1) precise; urgency=medium
+
+  * New upstream release
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Tue, 29 Sep 2015 18:56:25 +0200
+
+ka-lite-source (0.15~b1-0ubuntu1) precise; urgency=medium
+
+  * Fetch 0.15 assessment items
+  * New upstream 0.15b1 release
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Mon, 28 Sep 2015 23:44:10 +0200
+
+ka-lite-source (0.14.0-0ubuntu1) precise; urgency=medium
+
+  * Final 0.14 release 
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Fri, 28 Aug 2015 15:51:03 +0200
+
+ka-lite-source (0.14~b5-0ubuntu1) precise; urgency=medium
+
+  * New upstream release
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Thu, 27 Aug 2015 01:04:37 +0200
+
+ka-lite-source (0.14~b4-0ubuntu1) precise; urgency=medium
+
+  * New upstream release
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Wed, 26 Aug 2015 22:34:49 +0200
+
+ka-lite-source (0.14~b3-0ubuntu11) precise; urgency=medium
+
+  * Setuptools for source builds
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Fri, 21 Aug 2015 18:02:26 +0200
+
+ka-lite-source (0.14~b3-0ubuntu10) precise; urgency=medium
+
+  * Replace python-setuptools with python-pkg-resources
+  * Download assessment items using http instead of https (cert issue)
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Fri, 21 Aug 2015 17:43:21 +0200
+
+ka-lite-source (0.14~b3-0ubuntu9) precise; urgency=medium
+
+  * Revert nginx requirements and remove worker_processes 'auto'
+  * Make init script defaults use /etc/ka-lite/home setting
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Wed, 19 Aug 2015 18:57:58 +0200
+
+ka-lite-source (0.14~b3-0ubuntu8) precise; urgency=medium
+
+  * Test release containing new nginx requirement >= 1.2.5
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Wed, 19 Aug 2015 00:25:51 +0200
+
+ka-lite-source (0.14~b3-0ubuntu7) precise; urgency=medium
+
+  * New configurable $kalite_home variable for nginx
+  * Restore debconf question for ka-lite/user
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Tue, 18 Aug 2015 14:34:02 +0200
+
+ka-lite-source (0.14~b3-0ubuntu6) precise; urgency=medium
+
+  * Use ka-lite/user setting for ka-lite-raspberry-pi build
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Mon, 17 Aug 2015 22:39:44 +0200
+
+ka-lite-source (0.14~b3-0ubuntu5) precise; urgency=medium
+
+  * Add python-setuptools as a dependency (fixes raspian issues)
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Mon, 17 Aug 2015 14:44:59 +0200
+
+ka-lite-source (0.14~b3-0ubuntu4) precise; urgency=medium
+
+  * Add unzip to pre-depends, used for unpacking downloaded assessment items
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Sat, 15 Aug 2015 18:25:42 +0200
+
+ka-lite-source (0.14~b3-0ubuntu3) precise; urgency=medium
+
+  * Raspberry-pi package: Re-add nginx.conf to install files
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Sat, 15 Aug 2015 01:01:42 +0200
+
+ka-lite-source (0.14~b3-0ubuntu2) precise; urgency=medium
+
+  * Fix nginx divertion
+  * Set nginx as a pre-dependency to avoid clutter with invoke.rcd nginx during install
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Fri, 14 Aug 2015 13:42:57 +0200
+
+ka-lite-source (0.14~b3-0ubuntu1) precise; urgency=medium
+
+  * New upstream release
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Thu, 13 Aug 2015 16:40:38 +0200
+
+ka-lite-source (0.14~b2-0ubuntu2) precise; urgency=medium
+
+  * Set permissions on auto-created user home for ka-lite-raspberry-pi
+  * Adding /etc/nginx to raspberry-pi build to ensure succesful divertion
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Tue, 11 Aug 2015 23:15:29 +0200
+
+ka-lite-source (0.14~b2-0ubuntu1) precise; urgency=medium
+
+  * New upstream release
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Tue, 11 Aug 2015 21:55:37 +0200
+
+ka-lite-source (0.14~b1-0ubuntu2) precise; urgency=medium
+
+  * Clean up *pyc files after uninstalling
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Sun, 09 Aug 2015 11:41:16 +0200
+
+ka-lite-source (0.14~b1-0ubuntu1) precise; urgency=medium
+
+  * New upstream release
+  * Force /etc/init.d/ka-lite to be executable (15.04+ issue)
+  * Move 'dirs' file to package-name.dirs (15.04+ issue)
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Sat, 08 Aug 2015 18:16:12 +0200
+
+ka-lite-source (0.14~a12-0ubuntu1) precise; urgency=medium
+
+  * New upstream alpha 12
+  * Resetting versions to support debian version syntax
+
+ -- Benjamin Bach <benjamin@learningequality.org>  Tue, 28 Jul 2015 00:17:05 +0200

@@ -1,0 +1,88 @@
+{% extends "updates/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load i18n_filters %}
+
+{% block title %}{% trans "Update Videos" %}{% endblock %}
+
+{% block i18n_do_not_translate %}    
+    {% block video_active %}active{% endblock video_active %}
+{% endblock i18n_do_not_translate %}
+
+{% block headjs %}{{ block.super }}
+    <script type="text/javascript" src="{% static 'js/updates/bundles/bundle_update_videos.js' %}"></script>
+{% endblock headjs %}
+
+{% block content %}
+
+{% block subnavbar %}{{block.super}}{% endblock subnavbar %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6 download-actions vertical-shadow">
+            <h4 class="videos">
+                <span id="language_choice_titlebar">
+                {% if num_language_choices == 1 %}
+                    {% blocktrans with lang_name=current_language_name %}Videos for language {{ lang_name }}{% endblocktrans %}
+                {% else %}
+                    {% blocktrans with lang_name=current_language_name %}Videos for language <a href="#">{{ lang_name }}</a>{% endblocktrans %}
+                {% endif %}
+                </span>
+                <select id="download_language_selector">
+                {% for lang_code, lang_meta in language_choices.iteritems %}
+                    <option value="{{ lang_code }}" {% if lang_code == current_language %}selected{% endif %}>
+                        {{ lang_code|get_language_name }}
+                    </option>
+                {% endfor %}
+                </select>
+            </h4>
+
+            <div class="btn-group-vertical" role="group">
+
+                <button id="download-videos" type="button" class="enable-when-server-online btn btn-success" aria-label="{% trans "Download Videos" %}" disabled="disabled">
+                    <span id="download-videos-text" class="new-video-count">{% trans "Please select videos to download (below)" %}</span>
+                </button>
+
+                <button id="delete-videos" class="btn btn-danger" type="button" aria-label="{% trans "Delete Videos" %}" disabled="disabled">
+                    <div id="modal_dialog">
+                    </div>
+                    <span id="delete-videos-text" class="old-video-count">{% trans "Please select videos to delete (below)" %}</span>
+                </button>
+                <button id="scan-videos" type="button" class="btn btn-info" aria-label="{% trans "Scan for Videos" %}">
+                    <span id="scan-videos-text">{% trans "Scan content folder for videos" %}</span>
+                </button>
+
+            </div>
+        </div>
+
+
+        <div class="col-xs-5 download-actions vertical-shadow client-online-only">
+            <h4 class="videos">
+            {% trans "Help for downloading videos" %}
+            </h4>
+            <div id="help-info">
+                <a id="download-help-link" target="_new" href="http://{{ central_server_domain }}/docs/faq.html#i-would-like-to-download-the-videos-for-ka-lite-via-bittorrent-is-this-possible">
+                    {% trans "Q: How do I bulk-download videos?" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div style="clear: both;"></div>
+
+    <div>
+        <!-- note: id must match the "updates" app process name -->
+        <div id="videodownload-progressbar">
+            {% include "updates/progress-bar.html" %}
+        </div>
+
+        <div>
+            <button class="btn btn-default btn-xs" id="cancel-download" type="button">{% trans "Cancel Video Downloads" %}</button>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+
+    <div id="content_tree"><br/><h4>{% trans "Loading topic tree... Please wait!" %}</h4></div>
+
+{% endblock content %}

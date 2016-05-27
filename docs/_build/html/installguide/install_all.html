@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Windows &mdash; KA Lite 0.16 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="KA Lite 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="KA Lite Installation Guides" href="install_main.html"/>
+        <link rel="next" title="Release Notes" href="release_notes.html"/>
+        <link rel="prev" title="KA Lite Installation Guides" href="install_main.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> KA Lite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="install_main.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#upgrade">Upgrade</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mac-os-x">Mac OS X</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Upgrade</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#linux">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-method-ubuntu-debian-deb">Main method: Ubuntu/Debian .deb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raspberry-pi">Raspberry Pi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-options">Other options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-after-installation-or-update">Configuration after installation or update</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#uninstalling">Uninstalling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mac-osx">Mac OSX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux-debian-ubuntu">Linux: Debian/Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installed-with-pip">Installed with pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removing-user-data">Removing user data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html">Advanced Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system_requirements.html">System Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usermanual/userman_main.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_docs/contributing.html">Contributing and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_docs/index.html">For Devs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">KA Lite</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="install_main.html">KA Lite Installation Guides</a> &raquo;</li>
+      
+    <li>Windows</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="windows">
+<h1>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li>Download the KA Lite <a class="reference external" href="https://learningequality.org/r/windows-installer-0-16">Windows</a> installer.</li>
+<li>Double-click the downloaded .exe file, and the wizard window will appear to guide you through the process of installing KA Lite on your server.</li>
+</ol>
+<div class="section" id="upgrade">
+<h2>Upgrade<a class="headerlink" href="#upgrade" title="Permalink to this headline">¶</a></h2>
+<p>Upgrading KA Lite in Windows over an existing installation is easy &#8211; just run the installer and follow the prompts!
+You don&#8217;t need to uninstall your old KA Lite installation first.
+You can follow the prompts to either keep your existing data or delete old data and start over.
+See the <a class="reference internal" href="release_notes.html"><em>release notes</em></a> for critical upgrade information for specific versions.</p>
+<p>When you start the KA Lite program, you will find a leaf icon in your task tray.
+Right click on this icon to start/stop the server, open the application in a browser, or set other options:</p>
+<img alt="../_images/windows_task_tray.png" class="screenshot" src="../_images/windows_task_tray.png" />
+<p>By default, you can access KA Lite on the installation computer from the address <a class="reference external" href="http://127.0.0.1:8008">http://127.0.0.1:8008</a>.
+To access KA Lite from other machines, you will need to connect to the same network as the installation computer and
+access port 8008 using the its IP address.
+For example, if the installation computer has the IP address 192.168.0.104 on your network then you can access it from
+other machines on the same network at the address <a class="reference external" href="http://192.168.0.104:8008">http://192.168.0.104:8008</a>.</p>
+<p>For more advanced use of KA Lite, such as changing the default port, see <a class="reference internal" href="../usermanual/userman_admin.html#running-ka-lite-with-your-own-settings"><span>Running KA Lite with your own settings</span></a>
+or use the command-line <code class="docutils literal"><span class="pre">kalite</span></code> program, which in typical installations can be found at the path
+<code class="docutils literal"><span class="pre">C:\Python27\Scripts\kalite</span></code>. Run <code class="docutils literal"><span class="pre">kalite</span> <span class="pre">--help</span></code> for usage info.</p>
+</div>
+</div>
+<div class="section" id="mac-os-x">
+<h1>Mac OS X<a class="headerlink" href="#mac-os-x" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Download the KA Lite <a class="reference external" href="https://learningequality.org/r/osx-installer-0-16">OSX installer</a>.</li>
+<li>After the download is complete, double click the .pkg file.</li>
+<li>Click on the Continue button to allow the installer program to check for pre-installation requirements.</li>
+<li>Follow the prompts in the installer dialog to install KA Lite.</li>
+<li>The &#8220;KA Lite app&#8221; will launch automatically during installation, display notifications and a menu bar icon.</li>
+<li>When the installation finishes, you will be notified that &#8220;KA Lite is running...&#8221;. The installer will also show the &#8220;Summary&#8221; page with instructions to start using KA Lite.</li>
+<li>To start using KA Lite, click on the menu bar icon and select &#8220;Open in Browser&#8221;.</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>Upgrade<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>To upgrade an existing KA Lite installation.</p>
+<ol class="arabic simple">
+<li>Download the KA Lite <a class="reference external" href="https://learningequality.org/r/osx-installer-0-16">OSX installer</a>.</li>
+<li>Make sure that you stop the server and quit the KA Lite Monitor.</li>
+<li>After the download is complete, double click the .pkg file.</li>
+<li>Click on the Continue button to allow the installer program to check for pre-installation requirements.</li>
+<li>Follow the prompts in the installer dialog to install KA Lite.</li>
+<li>The &#8220;KA Lite app&#8221; will launch automatically during installation, display notifications and a menu bar icon.</li>
+<li>When the installation finishes, you will be notified that &#8220;KA Lite is running...&#8221;. The installer will also show the &#8220;Summary&#8221; page with instructions to start using KA Lite.</li>
+<li>To start using KA Lite, click on the menu bar icon and select &#8220;Open in Browser&#8221;.</li>
+</ol>
+<p>See the <a class="reference internal" href="release_notes.html"><em>release notes</em></a> for critical upgrade information for specific versions.</p>
+</div>
+</div>
+<div class="section" id="linux">
+<h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="main-method-ubuntu-debian-deb">
+<h2>Main method: Ubuntu/Debian .deb<a class="headerlink" href="#main-method-ubuntu-debian-deb" title="Permalink to this headline">¶</a></h2>
+<p>Download the <a class="reference external" href="https://learningequality.org/r/deb-bundle-installer-0-16">latest .deb</a> installer, and run this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo dpkg -i FILENAME.deb
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Double-clicking the .deb in Ubuntu will open it in Ubuntu Software Center.
+This will fail on a default installation due to
+<a class="reference external" href="https://bugs.launchpad.net/ubuntu/+source/software-center/+bug/1389582">a bug</a>
+in Ubuntu. To make it work, you need to install <code class="docutils literal"><span class="pre">libgtk2-perl</span></code>, for
+instance by running <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libgtk2-perl</span></code>. After that, make
+sure Software Center is closed and double-click the .deb file.</p>
+</div>
+<p><code class="docutils literal"><span class="pre">FILENAME</span></code> should be replaced with the name of the file you downloaded.
+The file may be named as if it was intended for Ubuntu but works just as well for any other Debian-based systems like
+Debian, Raspberry Pi, Linux Mint etc.</p>
+<p>You will be prompted to enter some configuration information.
+You should read the on-screen instructions carefully, but some explanation is included here:</p>
+<p>1. Choose weather you want to run KA Lite on boot or not. We recommend choosing yes, as it simplifies data management.
+If you choose not to, you must manually start KA lite every time.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Running KA Lite as different users creates different sets of data files, so it&#8217;s recommended that you run KA Lite as the same user every time.</p>
+</div>
+<img alt="../_images/linux-install-startup.png" class="screenshot" src="../_images/linux-install-startup.png" />
+<p>2. If you chose to start on boot in the previous step, you will be prompted to choose the owner for the KA Lite server
+process. Generally the default value is ok.</p>
+<img alt="../_images/linux-install-owner.png" class="screenshot" src="../_images/linux-install-owner.png" />
+<ol class="arabic simple" start="3">
+<li>You will be asked to review your choices, and finally KA Lite will start automatically when installation is complete.</li>
+</ol>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you want to receive automatic updates from online sources, you can
+also use <a class="reference internal" href="advanced.html#ppa-installation"><span>Debian/Ubuntu: Subscribe to updates through a PPA</span></a>.</p>
+</div>
+</div>
+<div class="section" id="raspberry-pi">
+<span id="raspberry-pi-install"></span><h2>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this headline">¶</a></h2>
+<p>For a Raspberry Pi running a Debian system, you can install the special Debian
+package <code class="docutils literal"><span class="pre">ka-lite-raspberry-pi</span></code> (<a class="reference external" href="https://learningequality.org/r/deb-pi-installer-0-16">Download .deb</a>).</p>
+<p>It can be installed by downloading the latest .deb on the Pi and installing it:</p>
+<div class="highlight-python"><div class="highlight"><pre># Install dependencies
+sudo apt-get install python-m2crypto python-pkg-resources nginx python-psutil
+# Fetch the latest .deb
+sudo wget https://learningequality.org/r/deb-pi-installer-0-16 --no-check-certificate --content-disposition
+# Install the .deb
+sudo dpkg -i ka-lite-raspberry-pi*.deb
+</pre></div>
+</div>
+<p>You can also add the PPA, see <a class="reference internal" href="advanced.html#ppa-installation"><span>Debian/Ubuntu: Subscribe to updates through a PPA</span></a>, and then
+run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">ka-lite-raspberry-pi</span></code>.</p>
+<p>After installing, you can setup a Wifi hotspot using this guide:
+<a class="reference internal" href="advanced.html#raspberry-pi-wifi"><span>Raspberry Pi Wi-Fi</span></a></p>
+</div>
+<div class="section" id="other-options">
+<h2>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h2>
+<p>KA Lite is available for all platforms (e.g. non-Debian compatible platforms)
+through PyPi. See <a class="reference internal" href="advanced.html#pip-installation"><span>Generic installation (pip install)</span></a>.</p>
+</div>
+<div class="section" id="id4">
+<h2>Upgrade<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>To upgrade KA Lite on Linux, simply download the latest deb file and follow the instructions above for installation.
+Your existing data will be preserved by default.
+See the <a class="reference internal" href="release_notes.html"><em>release notes</em></a> for critical upgrade information for specific versions.</p>
+</div>
+<div class="section" id="configuration-after-installation-or-update">
+<h2>Configuration after installation or update<a class="headerlink" href="#configuration-after-installation-or-update" title="Permalink to this headline">¶</a></h2>
+<p>Every time you install or update KA Lite, you must run <code class="docutils literal"><span class="pre">kalite</span> <span class="pre">manage</span> <span class="pre">setup</span></code> command again to setup the database and download assessment items (video descriptions,
+exercises etc.).</p>
+</div>
+</div>
+<div class="section" id="uninstalling">
+<h1>Uninstalling<a class="headerlink" href="#uninstalling" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id5">
+<h2>Windows<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Uninstall KA Lite from the Control Panel.</li>
+<li>In Windows XP, double-click the &#8220;Add or Remove Programs&#8221; icon, then choose KA Lite.</li>
+<li>In later version of Windows, click the &#8220;Programs and Features&#8221; icon, then choose KA Lite.</li>
+</ol>
+</div>
+<div class="section" id="mac-osx">
+<h2>Mac OSX<a class="headerlink" href="#mac-osx" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Launch <code class="docutils literal"><span class="pre">KA-Lite</span> <span class="pre">Monitor</span></code> from your <code class="docutils literal"><span class="pre">Applications</span></code> folder.</li>
+<li>Click on the app icon at the menu bar.</li>
+<li>Click on <code class="docutils literal"><span class="pre">Preferences</span></code> in the menu option.</li>
+<li>Click the <code class="docutils literal"><span class="pre">Reset</span> <span class="pre">App</span></code> from the <code class="docutils literal"><span class="pre">Advanced</span></code> tab.</li>
+<li>You will be prompted that &#8220;This will reset app. Are you sure?&#8221;, just click on <code class="docutils literal"><span class="pre">OK</span></code> button.</li>
+<li>Another dialog will appear asking your <code class="docutils literal"><span class="pre">Password</span></code>, type your password then click on <code class="docutils literal"><span class="pre">Ok</span></code> button.</li>
+<li>Quit the <code class="docutils literal"><span class="pre">KA-Lite</span> <span class="pre">Monitor</span></code> app (do not click the <code class="docutils literal"><span class="pre">Apply</span></code> button!).</li>
+<li>Move the <code class="docutils literal"><span class="pre">KA-Lite</span> <span class="pre">Monitor</span></code> app to <code class="docutils literal"><span class="pre">Trash</span></code>.</li>
+</ol>
+</div>
+<div class="section" id="linux-debian-ubuntu">
+<h2>Linux: Debian/Ubuntu<a class="headerlink" href="#linux-debian-ubuntu" title="Permalink to this headline">¶</a></h2>
+<p>Option 1: Open up <strong>Ubuntu Software Center</strong> and locate the KA Lite package.
+Press <code class="docutils literal"><span class="pre">Remove</span></code>.</p>
+<p>Option 2: Use <code class="docutils literal"><span class="pre">apt-get</span> <span class="pre">remove</span> <span class="pre">&lt;name</span> <span class="pre">of</span> <span class="pre">package&gt;</span></code>. You have to know which
+package you installed, typically this is <code class="docutils literal"><span class="pre">ka-lite</span></code> or <code class="docutils literal"><span class="pre">ka-lite-bundle</span></code>.</p>
+</div>
+<div class="section" id="installed-with-pip">
+<h2>Installed with pip<a class="headerlink" href="#installed-with-pip" title="Permalink to this headline">¶</a></h2>
+<p>You can remove KA Lite (when installed from pip or source distribution) with
+<code class="docutils literal"><span class="pre">pip</span> <span class="pre">uninstall</span> <span class="pre">ka-lite</span></code> or <code class="docutils literal"><span class="pre">pip</span> <span class="pre">uninstall</span> <span class="pre">ka-lite-static</span></code> (static version).</p>
+</div>
+<div class="section" id="removing-user-data">
+<h2>Removing user data<a class="headerlink" href="#removing-user-data" title="Permalink to this headline">¶</a></h2>
+<p>Some data (like videos and language packs) are downloaded into a location that
+depends on the user running the KA Lite server. Removing that directory can
+potentially reclaim lots of hard drive space.</p>
+<p>On Windows, the HOME and USERPROFILE registry values will be used if set,
+otherwise the combination <code class="docutils literal"><span class="pre">%HOMEDRIVE%%HOMEPATH%</span></code> will be used.
+You can check these values from the command prompt using the commands
+<code class="docutils literal"><span class="pre">echo</span> <span class="pre">%HOME%</span></code>, <code class="docutils literal"><span class="pre">echo</span> <span class="pre">$USERPROFILE%</span></code>, etc.
+Within that directory, the data is stored in the <code class="docutils literal"><span class="pre">.kalite</span></code> subdirectory.
+On most versions of Windows, this is <code class="docutils literal"><span class="pre">C:\Users\YourUsername\.kalite\</span></code>.</p>
+<p>On Linux, OSX, and other Unix-like systems, downloaded videos and database files are in <code class="docutils literal"><span class="pre">~/.kalite</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="release_notes.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install_main.html" class="btn btn-neutral" title="KA Lite Installation Guides" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, FLE.
+      Last updated on Mon, 02 May 2016 20:21:40 +0200.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

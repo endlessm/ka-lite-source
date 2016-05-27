@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Front End Code &mdash; KA Lite 0.16 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="KA Lite 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="Developer Docs" href="index.html"/>
+        <link rel="next" title="Purpose and creation of Javascript Unit Tests in KA Lite" href="javascript_testing.html"/>
+        <link rel="prev" title="Setting up your development environment" href="environment.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> KA Lite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installguide/install_main.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usermanual/userman_main.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing and Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">For Devs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="environment.html">Setting up your development environment</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Front End Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modularity">Modularity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-frontend-code">Building Frontend Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementing-with-backbone">Implementing with Backbone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-your-own-backbone-view">Creating Your Own Backbone View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tl-dr-or-7-quick-steps-to-creating-a-backbone-view-in-ka-lite">TL;DR (or 7 quick steps to creating a Backbone View in KA Lite)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javascript_testing.html">Javascript Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behave_testing.html">Behavior-Driven Integration Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling KA Lite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utility.html">Developer Utility Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Logging</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">KA Lite</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Developer Docs</a> &raquo;</li>
+      
+    <li>Front End Code</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="front-end-code">
+<h1>Front End Code<a class="headerlink" href="#front-end-code" title="Permalink to this headline">¶</a></h1>
+<p>All of our front end code is written in Javascript, with much of it using <a class="reference external" href="http://backbonejs.org">Backbone.js</a> (and its dependencies <a class="reference external" href="https://jquery.com/">jQuery</a> and <a class="reference external" href="http://underscorejs.org">Underscore.js</a>).</p>
+<p>All new code, where possible, should be written using <a class="reference external" href="http://backbone.js">Backbone.js</a> to modularize functionality, and allow code to be reused across the site.</p>
+<p>Inline Javascript (i.e. Javascript directly in the Django templates inside <cite>&lt;script&gt;</cite> tags) should be avoided except where absolutely necessary (such as to initialize some master object on a page).</p>
+<p>For templating on the front end, we use <a class="reference external" href="http://handlebarsjs.com/">Handlebars.js</a> to render templates with a restricted set of statements and access to all variables passed into the template context.</p>
+</div>
+<div class="section" id="modularity">
+<h1>Modularity<a class="headerlink" href="#modularity" title="Permalink to this headline">¶</a></h1>
+<p>In order to maintain modular code and be explicit about our dependencies, we use <a class="reference external" href="http://http://browserify.org/">Browserify</a> to build Javascript code into bundles for use on the client side.</p>
+<p>To specify a bundle to be imported into the page, you need to create a &#8216;bundle module&#8217; - this will be automatically detected by our Javascript build script, and be built into a bundle that can then be included as a script tag in a Django template.</p>
+<p>&#8216;Bundle modules&#8217; are specified inside the static/js directory of a Django app - e.g. &#8216;bundle modules&#8217; in distributed are under <code class="docutils literal"><span class="pre">kalite/distributed/static/js/distributed/bundle_modules</span></code>. Here is a simple example of a bundle_module:</p>
+<div class="highlight-python"><div class="highlight"><pre>var $ = require(&quot;base/jQuery&quot;);
+var TopicChannelRouter = require(&quot;topics/router&quot;);
+var Backbone = require(&quot;base/backbone&quot;);
+
+module.exports = {
+    $: $,
+    TopicChannelRouter: TopicChannelRouter,
+    Backbone: Backbone
+}
+</pre></div>
+</div>
+<p>This is the &#8216;learn&#8217; bundle module (a file called learn.js in the above directory) - all it specifies is a set of top level objects that need to be exposed to be run within the context of the Django template (because we need Django template context variables to be passed into the Javascript) - here are the relevant <code class="docutils literal"><span class="pre">&lt;script&gt;</span></code> tags from the template:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;script src=&quot;{% static &#39;js/distributed/bundles/bundle_learn.js&#39; %}&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var bundle = require(&quot;learn&quot;);
+    bundle.$(function() {
+        window.channel_router = new bundle.TopicChannelRouter({default_channel: &quot;{{ channel }}&quot;})
+        bundle.Backbone.history.start({pushState: true, root: &quot;{% url &#39;learn&#39; %}&quot;});
+    });
+&lt;/script&gt;
+</pre></div>
+</div>
+<p>Here, we <code class="docutils literal"><span class="pre">require</span></code> the learn bundle (all bundles can be referenced by their name in this way), and are then able to access the objects defined in its <code class="docutils literal"><span class="pre">module.exports</span></code>.</p>
+<p>For more information about using Browserify to handle dependencies, please refer to the <a class="reference external" href="https://github.com/substack/browserify-handbook">Browserify Handbook</a>.</p>
+</div>
+<div class="section" id="building-frontend-code">
+<h1>Building Frontend Code<a class="headerlink" href="#building-frontend-code" title="Permalink to this headline">¶</a></h1>
+<p>The build script uses <a class="reference external" href="https://nodejs.org/">node.js</a> - to run the build server for production simply run <code class="docutils literal"><span class="pre">node</span> <span class="pre">compile_javascript.js</span></code>.</p>
+<p>Alternatively, for development, running <code class="docutils literal"><span class="pre">bin/kalite</span> <span class="pre">start</span></code> with the <code class="docutils literal"><span class="pre">--watch</span></code> flag will automatically run the build process in watch mode, recompiling Javascript as it changes, on the fly.</p>
+<p>If you prefer to run the compilation process separately, it has the following flags:</p>
+<div class="highlight-python"><div class="highlight"><pre>--watch         Run in watch mode - automatically recompile Javascript when modules imported into bundles are changed (N.B. this will not detect new bundles being created.)
+--debug         Compile in debug mode - do not minify source code, and create source maps for easier client side debugging.
+--staticfiles   Saves built files directly to the static files dir, rather than into the original app directories - useful if collectstatic has already been run.
+</pre></div>
+</div>
+</div>
+<div class="section" id="implementing-with-backbone">
+<h1>Implementing with Backbone<a class="headerlink" href="#implementing-with-backbone" title="Permalink to this headline">¶</a></h1>
+<p>Most of our front end code uses only three kinds of objects, Backbone Models, Collections, and Views.</p>
+<p>Backbone Models contain data that we use to render the page - in the case of a coach report, for example, this might be data about each student.</p>
+<p>Backbone Collections are groups of Models - so you might have a Collection where each model represents the progress data for an individual student.</p>
+<p>The Views define how this data is displayed in the browser, and also defines responses to user interaction to the current display.</p>
+<p>Most Views also have an associated Handlebars template, which defines the HTML and how the data passed into the template is displayed in the rendered View.</p>
+<p>Often the data contained in a Backbone Model can change while the user is still on the same page (for example, a student&#8217;s total points can change while they are interacting with an exercise, so we want their displayed points to update whenever the &#8216;points&#8217; attribute of the model updates too).</p>
+<p>Here is an example of a Backbone View in KA Lite that does just that:</p>
+<div class="highlight-python"><div class="highlight"><pre>var TotalPointView = Backbone.View.extend({
+
+    initialize: function() {
+        _.bindAll(this);
+        this.listenTo(this.model, &quot;change:points&quot;, this.render);
+        this.render();
+    },
+
+    render: function() {
+
+        var points = this.model.get(&quot;points&quot;);
+        var message = null;
+
+        // only display the points if they are greater than zero, and the user is logged in
+        if (!this.model.get(&quot;is_logged_in&quot;)) {
+            return;
+        }
+
+        message = sprintf(gettext(&quot;Points: %(points)d &quot;), { points : points });
+
+        this.$el.html(message);
+        this.$el.show();
+    }
+
+});
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">initialize</span></code> method is called whenever a new instance of <code class="docutils literal"><span class="pre">TotalPointView</span></code> is instantiated (by calling e.g. <code class="docutils literal"><span class="pre">my_total_point_view</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">TotalPointView({model:</span> <span class="pre">model})</span></code>). There are several arguments that will automatically get set on the view if passed in to the constructor, model is one of them. See the <a class="reference external" href="http://backbone.js">Backbone.js</a> for more details.</p>
+<p><code class="docutils literal"><span class="pre">_.bindAll(this);</span></code> is included in many <code class="docutils literal"><span class="pre">initialize</span></code> methods we use, this helps to ensure that whenever a View method is called, then the <code class="docutils literal"><span class="pre">this</span></code> variable inside each method always refers to the view itself - without this, especially when methods are called due to being bound to events, the <code class="docutils literal"><span class="pre">this</span></code> variable can refer to something completely different.</p>
+<p><code class="docutils literal"><span class="pre">this.listenTo(this.model,</span> <span class="pre">&quot;change:points&quot;,</span> <span class="pre">this.render);</span></code> is an example of such an event binding. Here, the view is being told that whenever its model fires the event &#8220;change:points&#8221;, then it should call its own render method (<code class="docutils literal"><span class="pre">this.render</span></code>). Backbone models fire &#8220;change&#8221; events whenever one of their attributes changes, and also a specific event like &#8220;change:points&#8221;, which would only fire when the &#8216;points&#8217; attribute of the model changes.</p>
+<p>Finally <code class="docutils literal"><span class="pre">this.render();</span></code> calls the render method of the view. This method is generally reserved for creating and modifying DOM elements that we will insert into the page.</p>
+<p>Inside the render function <code class="docutils literal"><span class="pre">var</span> <span class="pre">points</span> <span class="pre">=</span> <span class="pre">this.model.get(&quot;points&quot;);</span></code> locally defines the points - as you can see from this example, to access the attributes of a Backbone Model, the <code class="docutils literal"><span class="pre">get(&quot;&lt;attribute&gt;&quot;)</span></code> method is used.</p>
+<p>The content to be rendered into the DOM in this instance is so simple that a Handlebars template is not used. Rather <code class="docutils literal"><span class="pre">message</span> <span class="pre">=</span> <span class="pre">sprintf(gettext(&quot;Points:</span> <span class="pre">%(points)d</span> <span class="pre">&quot;),</span> <span class="pre">{</span> <span class="pre">points</span> <span class="pre">:</span> <span class="pre">points</span> <span class="pre">});</span></code> simply fills in the <code class="docutils literal"><span class="pre">%(points)d</span></code> with the &#8216;points&#8217; attribute of the second argument of <code class="docutils literal"><span class="pre">sprintf</span></code>. See the <a class="reference external" href="https://www.npmjs.com/package/sprintf-js">sprintf docs</a> for more information.</p>
+<p>The part of the page that the view is scoped to can be refered to by <code class="docutils literal"><span class="pre">this.$el</span></code> - this is a jQuery object for the subsection of the DOM of the view, so any whole view operations (such as <code class="docutils literal"><span class="pre">this.$el.html(message);</span></code> or <code class="docutils literal"><span class="pre">this.$el.show();</span></code>) will change the entire subsection of the DOM for that view (but will normally only be a subset of the DOM of the entire page). <code class="docutils literal"><span class="pre">this.$el.html(message);</span></code> sets the entire HTML content of the view DOM subsection to the content of the <code class="docutils literal"><span class="pre">message</span></code> variable, and <code class="docutils literal"><span class="pre">this.$el.show();</span></code> makes the DOM subsection visible.</p>
+</div>
+<div class="section" id="creating-your-own-backbone-view">
+<h1>Creating Your Own Backbone View<a class="headerlink" href="#creating-your-own-backbone-view" title="Permalink to this headline">¶</a></h1>
+<p>To create a new Backbone View, you will either add to an existing Javascript file in the project, or create a new file. For example if you were to add a new View to the coachreports app you could create a file under <code class="docutils literal"><span class="pre">kalite/coachreports/static/js/coachreports/hexagon_report.js</span></code>. Some boilerplate to start off with might look something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>var HexagonReportView = BaseView.extend({
+
+    template: HB.template(&quot;reports/hexagon-counting&quot;)
+
+    initialize: function() {
+        _.bindAll(this);
+        this.listenTo(this.model, &quot;change:number_of_hexagons&quot;, this.render);
+        this.render();
+    },
+
+    render: function() {
+        this.$el.html(this.template(this.model.attributes));
+    }
+
+});
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">this.$el.html(this.template(this.model.attributes));</span></code> this line will insert all the attributes of the model into the template for rendering, and then set the HTML of the subsection of the DOM for the view to the resulting HTML.</p>
+<p>For this to work, there must be a file <code class="docutils literal"><span class="pre">kalite/coachreports/hbtemplates/reports/hexagon-counting.handlebars</span></code> that contains the Handlebars.js template for this view. For a simple report, the template might look something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;div class=&quot;hexagon-report&quot;&gt;
+    &lt;h3&gt;{{_ &quot;Hexagon Report&quot; }}&lt;/h3&gt;
+    &lt;p&gt;{{_ &quot;Current number of hexagons:&quot; }}{{number_of_hexagons}}&lt;/p&gt;
+&lt;/div&gt;
+</pre></div>
+</div>
+<p>To have this render in a particular Django template, both of the above files would need to be imported through <code class="docutils literal"><span class="pre">&lt;script&gt;</span></code> tags in the Django template. The relevant tags to add in this case would be:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;script src=&quot;{% url &#39;handlebars_templates&#39; module_name=&#39;reports&#39; %}&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;{% static &#39;js/coachreports/hexagon_report.js&#39; %}&quot;&gt;&lt;/script&gt;
+</pre></div>
+</div>
+<p>Note that for the Handlebars importing, only the folder name is necessary to be imported, not each individual template. It is also important that you do not place this script tag inside a Django-Compressor compress block.</p>
+<p>Finally, to actually have this render on the page, we would need to have a Backbone Model that is able to fetch the data from an API endpoint on the server, and when the fetch is successfully completed, prompt the view to be created. Assuming we have a HexagonReportModel already defined, we could insert the following code into the template to initialize this report:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;script&gt;
+    $(function(){
+        window.hexagonReportModel = new window.HexagonReportModel();
+        hexagonReportModel.fetch().then(function(){
+            window.hexagonView = new HexagonReportView({
+                el: $(&quot;#student-report-container&quot;),
+                model: hexagonReportModel
+            });
+        });
+    });
+&lt;/script&gt;
+</pre></div>
+</div>
+<p>Line by line this means - <code class="docutils literal"><span class="pre">$(function(){&lt;code</span> <span class="pre">here&gt;});</span></code> wait for the browser to finish rendering the HTML before executing the code inside this function.
+<code class="docutils literal"><span class="pre">window.hexagonReportModel</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">window.HexagonReportModel();</span></code> make a new instance of the HexagonReportModel.
+<code class="docutils literal"><span class="pre">hexagonReportModel.fetch().then(function(){&lt;code</span> <span class="pre">here&gt;});</span></code> get the data for this particular model from the server, and when that has finished, then execute the code inside the function.</p>
+<div class="highlight-python"><div class="highlight"><pre>window.hexagonView = new HexagonReportView({
+    el: $(&quot;#student-report-container&quot;),
+    model: hexagonReportModel
+});
+</pre></div>
+</div>
+<p>make a new instance of the HexagonReportView. This will automatically call initialize and so the view will render. In addition, <code class="docutils literal"><span class="pre">el:</span> <span class="pre">$(&quot;#student-report-container&quot;),</span></code> tells the view that it should set its subsection of the DOM to be the DOM element selected by <code class="docutils literal"><span class="pre">$(&quot;#student-report-container&quot;)</span></code> (i.e. the element with the id &#8216;student-report-container&#8217;), and <code class="docutils literal"><span class="pre">model:</span> <span class="pre">hexagonReportModel</span></code> tells it to set its &#8216;model&#8217; attribute to the hexagonReportModel we instantiated and fetch before.</p>
+</div>
+<div class="section" id="tl-dr-or-7-quick-steps-to-creating-a-backbone-view-in-ka-lite">
+<h1>TL;DR (or 7 quick steps to creating a Backbone View in KA Lite)<a class="headerlink" href="#tl-dr-or-7-quick-steps-to-creating-a-backbone-view-in-ka-lite" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li>Find the appropriate app folder inside KA Lite - inside &lt;folder&gt;/static/js/&lt;folder&gt;/ either create a folder for your Backbone files, or find an existing one with a name that fits.</li>
+<li>Inside this folder either create or open views.js.</li>
+<li>To start creating a view, type: <code class="docutils literal"><span class="pre">var</span> <span class="pre">MyViewNameView</span> <span class="pre">=</span> <span class="pre">BaseView.extend({});</span></code></li>
+<li>Define at least an <code class="docutils literal"><span class="pre">initialize</span></code> method, and a <code class="docutils literal"><span class="pre">render</span></code> method.</li>
+<li>If you want a Handlebars template for your View, look inside &lt;folder&gt;/hbtemplates/ and either create a folder for your Handlebars templates, or find an existing one with a name that fits.</li>
+<li>Inside this folder create a new file for your handlebars template <code class="docutils literal"><span class="pre">mytemplatename.handlebars</span></code>.</li>
+<li>Add this to your View definition code (inside the curly braces and don&#8217;t forget commas to separate key/value pairs!): <code class="docutils literal"><span class="pre">template:</span> <span class="pre">HB.template(&quot;&lt;templatefolder&gt;/mytemplatename&quot;)</span></code>.</li>
+</ol>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="javascript_testing.html" class="btn btn-neutral float-right" title="Purpose and creation of Javascript Unit Tests in KA Lite" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="environment.html" class="btn btn-neutral" title="Setting up your development environment" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, FLE.
+      Last updated on Mon, 02 May 2016 20:21:40 +0200.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

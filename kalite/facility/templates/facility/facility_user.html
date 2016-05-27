@@ -1,0 +1,44 @@
+{% extends "distributed/base_manage.html" %}
+{% load i18n %}
+
+{% block title %}{% trans title %}{% endblock title %}
+
+{% block headcss %}{{ block.super }}
+    <style>
+        #id_group {
+            margin-bottom: 5px;
+        }
+    </style>
+{% endblock headcss %}
+
+{% block content %}
+    {{ block.super }}
+
+    <div class="container">
+        <h3 class="no-margin-top">{{ title }}</h3>
+        <form method="post" class="basic-form">
+            {% csrf_token %}
+
+            {% for field in form.hidden_fields %}
+                {{ field }}
+            {% endfor %}
+            {% for field in form.visible_fields %}
+                <p>
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {{ field.errors }}
+                    {% if field.id_for_label == "id_group" and request.is_admin %}
+                        {# Allow admins to add a new group #}
+                        <span class="helptext">(<a href="{% url 'add_group' %}?facility={{facility.id}}&next={{ request.get_full_path|urlencode }}">{% trans "Add a new group" %}</a>)</span>
+                    {% else %}
+                        <span class="helptext">{{ field.help_text }}</span>
+                    {% endif %}   
+                </p>
+            {% endfor %}
+
+            <input type="submit" class="submit btn btn-success btn-md" value="{% if new_user %}{% trans 'Create user' %}{% else %}{% trans 'Update user' %}{% endif %}" />
+        </form>
+
+    </div>
+
+{% endblock content %}

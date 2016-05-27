@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: ifcfg
+Version: 0.9.3
+Summary: Python Ifconfig Wrapper for Unix/Linux/MacOSX
+Home-page: https://github.com/learningequality/python-ifcfg
+Author: Original author: BJ Dierkes
+Author-email: info@learningequality.org
+License: BSD
+Description: Python Ifconfig Wrapper for Unix/Linux/MacOSX
+Platform: UNKNOWN

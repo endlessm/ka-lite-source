@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Purpose and creation of Javascript Unit Tests in KA Lite &mdash; KA Lite 0.16 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="KA Lite 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="Developer Docs" href="index.html"/>
+        <link rel="next" title="Behavior-Driven Integration Tests" href="behave_testing.html"/>
+        <link rel="prev" title="Front End Code" href="front_end_code.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> KA Lite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installguide/install_main.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usermanual/userman_main.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing and Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">For Devs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="environment.html">Setting up your development environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html">Front End Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#modularity">Modularity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#building-frontend-code">Building Frontend Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#implementing-with-backbone">Implementing with Backbone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#creating-your-own-backbone-view">Creating Your Own Backbone View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#tl-dr-or-7-quick-steps-to-creating-a-backbone-view-in-ka-lite">TL;DR (or 7 quick steps to creating a Backbone View in KA Lite)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Javascript Unit Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-your-test-environment">Setting up your Test Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-your-javascript-to-be-testable-in-ka-lite">Getting Your Javascript to be Testable in KA Lite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-a-test">Writing a Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-tests">Running Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="behave_testing.html">Behavior-Driven Integration Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling KA Lite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utility.html">Developer Utility Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Logging</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">KA Lite</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Developer Docs</a> &raquo;</li>
+      
+    <li>Purpose and creation of Javascript Unit Tests in KA Lite</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="purpose-and-creation-of-javascript-unit-tests-in-ka-lite">
+<h1>Purpose and creation of Javascript Unit Tests in KA Lite<a class="headerlink" href="#purpose-and-creation-of-javascript-unit-tests-in-ka-lite" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>Our Backbone Models and Views can end up having a lot of methods. It is important that all of those methods observe the correct input output characteristics. Hence it is important that we write tests that guarantee that our methods either take the correct input and produce the right output, or, as is often the case, produce the right side effects on models, views, or the DOM.</p>
+<p>In pursuit of this lofty goal of having every method and object testable and tested, there will be some requirements of refactoring along the way. Some of the code that has already been written for the KA Lite project is not conveniently parcelled in such a way as to be conducive to testing individual components in an atomic fashion. In order to ensure that functionality does not break as a result, we have integration tests (which are currently only implemented using Selenium scripted by Python) - for now we are avoiding writing such integration tests in Javascript as well so as to avoid duplication.</p>
+</div>
+<div class="section" id="setting-up-your-test-environment">
+<h2>Setting up your Test Environment<a class="headerlink" href="#setting-up-your-test-environment" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Install requirements:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://nodejs.org/download/">install node</a> if you don&#8217;t have it already.</li>
+<li><a class="reference external" href="https://pypi.python.org/pypi/pip">install pip</a> if you don&#8217;t have it already.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Install the dependencies listed in requirements.txt: <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p>
+</li>
+<li><p class="first">Install the dependencies listed in packages.json: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">npm</span> <span class="pre">install</span></code></p>
+</li>
+</ol>
+</div>
+<div class="section" id="getting-your-javascript-to-be-testable-in-ka-lite">
+<h2>Getting Your Javascript to be Testable in KA Lite<a class="headerlink" href="#getting-your-javascript-to-be-testable-in-ka-lite" title="Permalink to this headline">¶</a></h2>
+<p>Before you can test your javascript, it must be capable of being bundled in such a way that django-compress (the asset compression package we use) is able to write it to a Javascript file which can then be loaded by the Javascript test runner, karma.</p>
+<p>In order to make this happen, use compression tags around blocks of Javascript script imports inside django templates for example, from learn.html:</p>
+<div class="highlight-python"><div class="highlight"><pre>{% compress js file learnjs %}
+&lt;!--[if !IE]&gt; --&gt;
+&lt;script src=&quot;{% static &quot;video-js/video.js&quot; %}&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;{% static &quot;video-js/video-speed.js&quot; %}&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    _V_.options.flash.swf = window.flash_swf;
+&lt;/script&gt;
+&lt;!-- &lt;![endif]--&gt;
+&lt;script src=&quot;{% static &quot;soundmanager/soundmanager2-nodebug-jsmin.js&quot; %}&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;{% static &#39;js/distributed/content/models.js&#39; %}&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;{% static &#39;js/distributed/content/views.js&#39; %}&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;{% static &#39;js/distributed/video/models.js&#39; %}&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;{% static &#39;js/distributed/video/views.js&#39; %}&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;{% static &#39;js/distributed/audio/views.js&#39; %}&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;{% static &#39;js/jquery.slimscroll.min.js&#39; %}&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;{% static &#39;js/distributed/topics/models.js&#39; %}&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;{% static &#39;js/distributed/topics/views.js&#39; %}&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;{% static &#39;js/distributed/topics/router.js&#39; %}&quot;&gt;&lt;/script&gt;
+
+{% endcompress %}
+</pre></div>
+</div>
+<p>You will also need to inclue the tag <code class="docutils literal"><span class="pre">{%</span> <span class="pre">load</span> <span class="pre">compress</span> <span class="pre">%}</span></code> at the top of a template in order to make use of the <code class="docutils literal"><span class="pre">compress</span></code> template tag.</p>
+<p>Let&#8217;s examine the important details of <code class="docutils literal"><span class="pre">{%</span> <span class="pre">compress</span> <span class="pre">js</span> <span class="pre">file</span> <span class="pre">learnjs</span> <span class="pre">%}</span></code> - the <code class="docutils literal"><span class="pre">compress</span></code> tag name is followed by the kind of file being compressed (<code class="docutils literal"><span class="pre">js</span></code>), then two optional parameters. The first tells django-compress to compress the assets to a separate file (rather than rendering the concatenated Javascript inline in the HTML), the second gives a name to the code block. This should be a unique name across the entire code base. At current there is no way to know what names have already been used, except by examining karma.conf.js in the root of the project.</p>
+<p>The name of the block is important for making it available for Javascript testing - it needs to be manually added to the karma.conf.js here:</p>
+<div class="highlight-python"><div class="highlight"><pre>// list of files / patterns to load in the browser
+files: [
+  file_map[&#39;basejs&#39;].slice(1),
+  file_map[&#39;perseusjs_1&#39;].slice(1),
+  file_map[&#39;perseusjs_2&#39;].slice(1),
+  file_map[&#39;learnjs&#39;].slice(1),
+  file_map[&#39;pdfjs&#39;].slice(1),
+  // INSERT NEW JAVASCRIPT BUNDLES HERE
+  &#39;**/tests/javascript_unit_tests/*.js&#39;,
+  &#39;testing/testrunner.js&#39;
+],
+</pre></div>
+</div>
+<p>So if you had created a new compression block called &#8216;exparrotshop&#8217; then you would add the element <code class="docutils literal"><span class="pre">file_map['exparrotshop'].slice(1)</span></code> to the array.</p>
+</div>
+<div class="section" id="writing-a-test">
+<h2>Writing a Test<a class="headerlink" href="#writing-a-test" title="Permalink to this headline">¶</a></h2>
+<p>You are now ready to write a test. All Javascript unit tests live inside the appropriate app. For example, if you were writing a unit test for Javascript code for the coachreport app, you would put your test file in kalite/coachreports/tests/javascript_unit_tests/. Call your file the name of the Model, View, or Router you are testing, or use an existing test file if you are extending an already tested Model or View.
+For example, the Session Model test file is called:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">session_model_test</span><span class="o">.</span><span class="n">js</span>
+</pre></div>
+</div>
+<p>Each test file should start with a definition statement:</p>
+<div class="highlight-python"><div class="highlight"><pre>module(&quot;Session Model Tests&quot;, {
+  setup: function() {
+    return this.sessionModel = new SessionModel();
+  }
+});
+</pre></div>
+</div>
+<p>The text gives the name of the suite of tests you will be writing in this file. The <code class="docutils literal"><span class="pre">setup</span></code> method defines something that happens prior to every single test being run. <code class="docutils literal"><span class="pre">this</span></code> gets returned to every subsequent test as <code class="docutils literal"><span class="pre">this</span></code> also, so anything set as an attribute of <code class="docutils literal"><span class="pre">this</span></code> will be available inside each test.</p>
+<p>After the module definition, you can define any number of tests. Here is a simple example:</p>
+<div class="highlight-python"><div class="highlight"><pre>test(&quot;Default values&quot;, function() {
+  expect(2);
+
+  equal(this.sessionModel.get(&quot;SEARCH_TOPICS_URL&quot;), &quot;&quot;);
+  equal(this.sessionModel.get(&quot;STATUS_URL&quot;), &quot;&quot;);
+});
+</pre></div>
+</div>
+<p>This simple test is checking the default values for the Session Model defined during the setup method above. At the beginning of the test, we declare how many assertion statements will be made during the course of the test. Not specifying this number correctly will cause a failure. The tests are written in <a class="reference external" href="https://qunitjs.com/">QUnit</a> whose docs can be referred to for a complete set of assertions.</p>
+</div>
+<div class="section" id="running-tests">
+<h2>Running Tests<a class="headerlink" href="#running-tests" title="Permalink to this headline">¶</a></h2>
+<p>When you have written your tests, before you can run them, we need to bundle the Javascript for testing. In order to do this, from the root of the project run:</p>
+<div class="highlight-python"><div class="highlight"><pre>bin/kalite manage bundleassets
+</pre></div>
+</div>
+<p>This will bundle all the django-compress tags and make concatenated files. It will also update the file_map that our Karma config uses to find these files. When this is complete, simply run:</p>
+<div class="highlight-python"><div class="highlight"><pre>karma start
+</pre></div>
+</div>
+<p>This will run through all the Javascript tests and report on failures. N.B. Karma is often, and most helpfully, run in continuous integration mode - our code base does not currently suppor that, but hopefully will in the future.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="behave_testing.html" class="btn btn-neutral float-right" title="Behavior-Driven Integration Tests" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="front_end_code.html" class="btn btn-neutral" title="Front End Code" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, FLE.
+      Last updated on Mon, 02 May 2016 20:21:40 +0200.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

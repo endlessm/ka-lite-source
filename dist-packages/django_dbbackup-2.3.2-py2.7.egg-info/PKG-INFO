@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: django-dbbackup
+Version: 2.3.2
+Summary: Management commands to help backup and restore a project database to AmazonS3, Dropbox or local disk.
+Home-page: https://github.com/django-dbbackup/django-dbbackup
+Author: Michael Shepanski
+Author-email: mjs7231@gmail.com
+License: BSD
+Description: UNKNOWN
+Keywords: django,dropbox,database,backup,amazon,s3
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Environment :: Console
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4

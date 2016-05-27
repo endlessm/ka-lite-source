@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setting up your development environment &mdash; KA Lite 0.16 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="KA Lite 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="Developer Docs" href="index.html"/>
+        <link rel="next" title="Front End Code" href="front_end_code.html"/>
+        <link rel="prev" title="Developer Docs" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> KA Lite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installguide/install_main.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usermanual/userman_main.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing and Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">For Devs</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Setting up your development environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#recommended-setup">Recommended setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-directly-from-source">Running directly from source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#static-vs-dynamic-version">Static vs. Dynamic version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtualenv">Virtualenv</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html">Front End Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#modularity">Modularity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#building-frontend-code">Building Frontend Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#implementing-with-backbone">Implementing with Backbone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#creating-your-own-backbone-view">Creating Your Own Backbone View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#tl-dr-or-7-quick-steps-to-creating-a-backbone-view-in-ka-lite">TL;DR (or 7 quick steps to creating a Backbone View in KA Lite)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javascript_testing.html">Javascript Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behave_testing.html">Behavior-Driven Integration Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling KA Lite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utility.html">Developer Utility Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Logging</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">KA Lite</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Developer Docs</a> &raquo;</li>
+      
+    <li>Setting up your development environment</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setting-up-your-development-environment">
+<span id="development-environment"></span><h1>Setting up your development environment<a class="headerlink" href="#setting-up-your-development-environment" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">These directions may be out of date! This page needs to be consolidated with the <a class="reference external" href="https://github.com/learningequality/ka-lite/wiki/Getting-started">Getting Started page on our wiki</a>.</p>
+</div>
+<div class="section" id="recommended-setup">
+<h2>Recommended setup<a class="headerlink" href="#recommended-setup" title="Permalink to this headline">¶</a></h2>
+<p>KA Lite is like a normal django project, if you have done Django before, you will recognize most of these steps.</p>
+<ol class="arabic">
+<li><p class="first">Check out the project from our <a class="reference external" href="https://github.com/learningequality/ka-lite">github</a></p>
+</li>
+<li><p class="first">Create a virtual environment &#8220;kalite&#8221; that you will work in:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo pip install virtualenvwrapper
+mkvirtualenv kalite
+workon kalite
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install kalite in your virtualenv in &#8220;editable&#8221; mode, meaning that the source is just linked:</p>
+<div class="highlight-python"><div class="highlight"><pre>cd path/to/repo
+pip install -e .
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install additional development tools:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip install -r requirements_dev.txt
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run a development server and use development settings like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>kalite manage runserver --settings=kalite.project.settings.dev
+</pre></div>
+</div>
+</li>
+</ol>
+<p>You can also change your <code class="docutils literal"><span class="pre">~/.kalite/settings.py</span></code> to point to <code class="docutils literal"><span class="pre">kalite.project.settings.dev</span></code> by default, then you do not have to specify <cite>&#8211;settings=...</cite> every time you run kalite.</p>
+<p>Now, every time you work on your development environment, just remember to switch on your virtual environment with <code class="docutils literal"><span class="pre">workon</span> <span class="pre">kalite</span></code>.</p>
+</div>
+<div class="section" id="running-directly-from-source">
+<h2>Running directly from source<a class="headerlink" href="#running-directly-from-source" title="Permalink to this headline">¶</a></h2>
+<p>KA Lite can also be run as a &#8220;source distribution&#8221; for development purposes.
+By this, we just mean a git checkout (from <a class="reference external" href="https://github.com/learningequality/ka-lite/">our github</a>).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Running directly from source will also maintain all user data in that
+same directory! This is convenient for having several versions of
+kalite with different data on the same computer.</p>
+</div>
+<p>If you are able to use pip and install conventional python packages from an
+online source, then the quickest option to install the latest stable release
+of KA Lite is <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ka-lite`</span> <span class="pre">or</span> <span class="pre">`pip</span> <span class="pre">install</span> <span class="pre">ka-lite-static</span></code>.</p>
+</div>
+<div class="section" id="static-vs-dynamic-version">
+<h2>Static vs. Dynamic version<a class="headerlink" href="#static-vs-dynamic-version" title="Permalink to this headline">¶</a></h2>
+<p>Apart from Python itself, KA Lite depends on a couple of python applications,
+mainly from the Django ecology. These applications can be installed in two ways:</p>
+<ul>
+<li><dl class="first docutils">
+<dt><strong>Dynamic</strong>: That means that they are automatically installed through</dt>
+<dd><p class="first last"><em>PIP</em> as a separate software package accessible to your whole system. This
+is recommended if you run KA Lite and have internet access while installing
+and updating.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Static</strong>: Static means that KA Lite is installed with all the external</dt>
+<dd><p class="first last">applications bundled in. Use this method if you need to have KA Lite
+installed from offline media or if KA Lite&#8217;s dependencies are in conflict
+with the system that you install upon.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="virtualenv">
+<h2>Virtualenv<a class="headerlink" href="#virtualenv" title="Permalink to this headline">¶</a></h2>
+<p>You can install KA Lite in its very own separate environment that does not
+interfere with other Python software on your machine like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>$&gt; pip install virtualenv virtualenvwrapper
+$&gt; mkvirtualenv my-kalite-env
+$&gt; workon my-kalite-env
+$&gt; pip install ka-lite
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="front_end_code.html" class="btn btn-neutral float-right" title="Front End Code" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Developer Docs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, FLE.
+      Last updated on Mon, 02 May 2016 20:21:40 +0200.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

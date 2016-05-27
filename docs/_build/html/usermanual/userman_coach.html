@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Coach User Manual &mdash; KA Lite 0.16 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="KA Lite 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="User Manual" href="userman_main.html"/>
+        <link rel="next" title="Learner User Manual" href="userman_learner.html"/>
+        <link rel="prev" title="Administrator User Manual" href="userman_admin.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> KA Lite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installguide/install_main.html">Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="userman_main.html">User Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="userman_admin.html">Administrator User Manual</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Coach User Manual</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#coach-reports">Coach Reports</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tabular-report">Tabular Report</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#progress-by-topic">Progress By Topic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#detailed-view">Detailed View</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#inline-help">Inline Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exporting-user-data">Exporting User Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#content-ratings">Content Ratings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="userman_learner.html">Learner User Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userman_main.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_docs/contributing.html">Contributing and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_docs/index.html">For Devs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">KA Lite</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="userman_main.html">User Manual</a> &raquo;</li>
+      
+    <li>Coach User Manual</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="coach-user-manual">
+<h1>Coach User Manual<a class="headerlink" href="#coach-user-manual" title="Permalink to this headline">¶</a></h1>
+<p><strong>Who is a &#8220;coach&#8221;?</strong></p>
+<dl class="docutils">
+<dt>A person who :</dt>
+<dd><ul class="first last simple">
+<li>adds, manages, and tracks the progress of groups of students.</li>
+<li>has access to student progress data in the form of coach reports</li>
+<li>provides instructions to students</li>
+</ul>
+</dd>
+<dt>In addition, by default, coaches can:</dt>
+<dd><ul class="first last simple">
+<li>create coach logins, Learner logins, download videos and language packs</li>
+</ul>
+</dd>
+</dl>
+<p>(This can be disabled by the administrator with the RESTRICTED_TEACHER_PERMISSIONS setting)</p>
+<div class="section" id="coach-reports">
+<h2>Coach Reports<a class="headerlink" href="#coach-reports" title="Permalink to this headline">¶</a></h2>
+<p>Coach reports are visualizations of the data generated by your learners. The goal of the coach reports is to put the data into an easy to understand format, so you can understand how learners are progressing and where they need the most help.</p>
+<p>The Report Page displays an overview of the learners and a tabular report.</p>
+<img alt="../_images/coach_report.png" src="../_images/coach_report.png" />
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Select the &#8220;Teach&#8221; tab at the top of the page.</li>
+<li>Select the appropriate facility from the drop down menu to view reports for a specific facility.</li>
+<li>Select a group from the drop down menu to view the overivew for a specific group or leave the group as is.</li>
+<li>The display should refresh with the data requested, for student activity from the previous week onwards.</li>
+<li>To view data over a longer period, select the start and end date using the time picker, and click the &#8216;refresh&#8217; icon next to the time picker.</li>
+</ol>
+<p>The overview will display the activity of the group: the percentage of hours logged on content versus exercises, the average progress in exercises, and the total exercises attempted.</p>
+</div>
+<div class="section" id="tabular-report">
+<h3>Tabular Report<a class="headerlink" href="#tabular-report" title="Permalink to this headline">¶</a></h3>
+<p>A tabular report is a grid that can show how students are doing in specific subjects at a high level.
+As a coach, you can select which group of students you&#8217;d like to check progress for, and which subset of videos or exercises you&#8217;d like to see reports on.
+This allows you to easily identify which areas learners are struggling in, as well as which learners are doing well.</p>
+<ol class="arabic simple">
+<li>Click the &#8220;Show Tabular Report&#8221; button at the bottom of the page.</li>
+</ol>
+<img alt="../_images/611ad781d060b5fd330ba7e5a07907b2.png" class="screenshot" src="../_images/611ad781d060b5fd330ba7e5a07907b2.png" />
+</div>
+<div class="section" id="progress-by-topic">
+<h3>Progress By Topic<a class="headerlink" href="#progress-by-topic" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Click on the &#8220;Show Tabular Report&#8221; button.</li>
+<li>A table should be generated with the data requested.</li>
+</ol>
+<p>The color of the rectangles in the table indicate how that student is doing on a particular exercise. The following key explains the color code of the table cells (this information will also be available on the Coach Report page):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><img alt="../_images/gray.png" class="first last" src="../_images/gray.png" />
+</td>
+<td>Not Attempted: The student has not attempted the subtopic.</td>
+</tr>
+<tr class="row-even"><td><img alt="../_images/blue.png" class="first last" src="../_images/blue.png" />
+</td>
+<td>In Progress: The student has completed a few questions.</td>
+</tr>
+<tr class="row-odd"><td><img alt="../_images/red.png" class="first last" src="../_images/red.png" />
+</td>
+<td>Struggling: The student is struggling on the subtopic.</td>
+</tr>
+<tr class="row-even"><td><img alt="../_images/green.png" class="first last" src="../_images/green.png" />
+</td>
+<td>Completed: The student has completed the subtopic.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="detailed-view">
+<h3>Detailed View<a class="headerlink" href="#detailed-view" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Click on the colored cells.</li>
+<li>A panel should open up below the cell to reveal the number of questions attempted and the actions made on each exercise.</li>
+<li>Click on the same cell to close the panel.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="inline-help">
+<h2>Inline Help<a class="headerlink" href="#inline-help" title="Permalink to this headline">¶</a></h2>
+<p>KA Lite has an inline help system on some pages.
+On parts of the site where it is available, you can find a &#8220;Show me how!&#8221; button.
+If you click this button, you can view a guided tour of the currently shown interface.</p>
+</div>
+<div class="section" id="exporting-user-data">
+<h2>Exporting User Data<a class="headerlink" href="#exporting-user-data" title="Permalink to this headline">¶</a></h2>
+<p>On the facility management page, you can find the &#8220;Export Data&#8221; button.
+If you click this button, you&#8217;ll be taken to a page where you can export some user data in CSV format.
+This is so you can perform analyses on data accumulated in KA Lite using your own methods &#8211; in the future such tools may be included in KA Lite itself!
+You can select which resource you wish to export, and narrow down the list of users to draw data from by selecting facilities and groups.
+When you have made your selection, click the &#8220;Export&#8221; button to download a CSV file with the requested data.</p>
+<div class="section" id="content-ratings">
+<span id="export-content-rating"></span><h3>Content Ratings<a class="headerlink" href="#content-ratings" title="Permalink to this headline">¶</a></h3>
+<p>Select the &#8220;Ratings&#8221; option in the &#8220;Resources&#8221; dropdown.
+Ratings are tied to users and content items &#8211; each rating has a unique-together user, content type, and content id.
+The content id is suppressed in the output as it is not human readable, but is replaced with the title.
+The title of content items may not be unique &#8211; for example a video and an exercise might have the same title.
+In such cases, you can differentiate using the content type.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="userman_learner.html" class="btn btn-neutral float-right" title="Learner User Manual" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="userman_admin.html" class="btn btn-neutral" title="Administrator User Manual" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, FLE.
+      Last updated on Mon, 02 May 2016 20:21:40 +0200.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

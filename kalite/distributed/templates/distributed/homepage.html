@@ -1,0 +1,44 @@
+{% extends "distributed/base_teach.html" %}
+
+{% load i18n %}
+{% load staticfiles %}
+
+{% block headjs %}{{ block.super }}
+
+    <script src="{% static 'js/distributed/bundles/bundle_homepage.js' %}"></script>
+
+    {% if settings.AUTO_LOAD_TEST %}{# TODO(bcipolli): eliminate this, make the load testing app inherit from / override this page #}
+    <script>
+        if (window.parent.frames.length === 0) {
+            window.location = "{% url 'load_test' %}";
+        }
+    </script>
+    {% endif %}
+    
+{% endblock headjs %}
+
+{% block content %}
+{% block subnavbar %}{{block.super}}{% endblock subnavbar %}
+    <div class="container" id="content-area">
+
+        <div class="row">
+            <h2 class="main-headline hidden-xs">{{ channel_data.head_line }}</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 col-sm-push-4 col-xs-10 col-xs-push-1 vertical-shadow suggested-action">
+                <a href="{% url 'learn' %}">
+                     <h2 class="h3 suggested-action-title">{% trans "Learn!" %}</h2>
+                     <img class="img-responsive" id="suggested-action-image-link-homepage" src="{{ channel_data.frontpage_splash }}" alt="{% trans 'Learn with Khan Academy videos and exercises!' %}">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12" id="homepage-p-div">
+                <p class="homepage-p"><strong>{{ channel_data.tag_line }}</strong></p>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

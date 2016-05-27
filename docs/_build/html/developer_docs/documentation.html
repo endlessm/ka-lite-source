@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to contribute to documentation &mdash; KA Lite 0.16 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="KA Lite 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="Contributing and Development" href="contributing.html"/>
+        <link rel="next" title="Contribute to make KA Lite accessible to all" href="accessibility.html"/>
+        <link rel="prev" title="Contributing and Development" href="contributing.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> KA Lite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installguide/install_main.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usermanual/userman_main.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="contributing.html">Contributing and Development</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="contributing.html#how-can-i-contribute-to">How can I contribute to...</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Documentation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#documentation-development">Documentation development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#screenshots">Screenshots</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html">Accessibility</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">For Devs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">KA Lite</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="contributing.html">Contributing and Development</a> &raquo;</li>
+      
+    <li>How to contribute to documentation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-contribute-to-documentation">
+<h1>How to contribute to documentation<a class="headerlink" href="#how-to-contribute-to-documentation" title="Permalink to this headline">¶</a></h1>
+<p>You can propose changes to the docs directly on Github (instructions below) or
+email your recommendations to <a class="reference external" href="mailto:info&#37;&#52;&#48;learningequality&#46;org">info<span>&#64;</span>learningequality<span>&#46;</span>org</a>.</p>
+<p>To propose changes directly, you&#8217;ll need to create an account on github and open
+a pull request. This document assumes you are somewhat familiar with that
+process, and will not explain all the steps in detail. For full instructions on
+how to make a pull request, see
+<a class="reference external" href="https://help.github.com/articles/creating-a-pull-request/">Github&#8217;s help section</a>.</p>
+<div class="section" id="documentation-development">
+<h2>Documentation development<a class="headerlink" href="#documentation-development" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Work from the <em>develop</em> branch.</p>
+</li>
+<li><p class="first">From the base directory, the documentation can be found in the <code class="docutils literal"><span class="pre">docs/</span></code>
+subdirectory. Specific pages of the docs are each associated with a different
+.rst file, potentially in a subdirectory of <code class="docutils literal"><span class="pre">docs/</span></code>.</p>
+</li>
+<li><p class="first">The documentation is written in
+<a class="reference external" href="http://sphinx-doc.org/rest.html">ReStructured Text</a> format, so please see
+the primer!</p>
+</li>
+<li><p class="first">After making your changes, try to build the docs to review them. This process
+can take some time, as an instance of the server and a browser may need to
+be started. To build the docs:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip install -r requirements_sphinx.txt  # To install software for building docs
+cd docs
+make html
+</pre></div>
+</div>
+</li>
+<li><p class="first">You can view the docs in a browser by opening <em>docs/_build/html/index.html</em>.</p>
+</li>
+<li><p class="first">After you are satisfied with your changes push them to your fork of the ka-lite project, and then open a PR.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="screenshots">
+<h2>Screenshots<a class="headerlink" href="#screenshots" title="Permalink to this headline">¶</a></h2>
+<p>Screenshots are made automatically following the screenshots directives. They
+are stored in a folder <code class="docutils literal"><span class="pre">docs/_static/</span></code>, which is also sync&#8217;ed to Github
+(TODO: This is a temporary procedure).</p>
+<p>To grab new screenshots, you have to have Firefox installed and run:</p>
+<div class="highlight-python"><div class="highlight"><pre>cd docs/
+SPHINX_SS_USE_PVD=true make SPHINXOPTS=&quot;-D screenshots_create=1&quot; html
+</pre></div>
+</div>
+<p>You can also refer to <code class="docutils literal"><span class="pre">docs/SCREENSHOT_USAGE.MD</span></code> for more info about the
+screenshot RST directive.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="accessibility.html" class="btn btn-neutral float-right" title="Contribute to make KA Lite accessible to all" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="contributing.html" class="btn btn-neutral" title="Contributing and Development" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, FLE.
+      Last updated on Mon, 02 May 2016 20:21:40 +0200.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

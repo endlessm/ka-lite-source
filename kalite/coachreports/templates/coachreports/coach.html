@@ -1,0 +1,46 @@
+{% extends "distributed/base_teach.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load my_filters %}
+
+{% block title %}{% trans "Coach Reports" %}{% endblock title %}
+
+{% block headcss %}{{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-datepicker3.min.css' %}" />
+{% endblock headcss %}
+
+{% block headjs %}{{ block.super }}
+    <script type="text/javascript">
+        var FACILITY_RESOURCE_URL = "{% url 'api_dispatch_list' resource_name='facility' %}";
+        var GROUP_RESOURCE_URL = "{% url 'api_dispatch_list' resource_name='group' %}";
+        var FACILITY_ID = {% if facility_id %}"{{ facility_id }}"{% else %}undefined{% endif %};
+        var ZONE_ID = "{{ zone_id }}";
+    </script>
+    <script src="{% static 'js/coachreports/bundles/bundle_coach_report.js' %}"></script>
+
+    <script>
+        $(function(){
+            Backbone.history.start({pushState: true, root: "{% url 'coach_reports' zone_id=zone_id %}"});
+        })
+    </script>
+{% endblock headjs %}
+
+{% block content %}
+    {# This call to super pulls in the subnavbar #}
+    {% block subnavbar %}{{block.super}}{% endblock subnavbar %}
+
+    {# Now we create the coachreport selection bar #}
+    <div class="container container-margin-bottom">
+        <div class="row coach-reports-row">
+            <div class="subtitle coach-heading">
+                {# Note to translators: following this phrase is the name of a class. #}
+                {% trans "Coach Reports" %}
+            </div>
+            <div id="coachreport_container">
+                {# insert backbone magic here for coachreport navigation #}
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+

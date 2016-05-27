@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Behavior-Driven Integration Tests &mdash; KA Lite 0.16 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="KA Lite 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="Developer Docs" href="index.html"/>
+        <link rel="next" title="Profiling KA Lite" href="profiling.html"/>
+        <link rel="prev" title="Purpose and creation of Javascript Unit Tests in KA Lite" href="javascript_testing.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> KA Lite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installguide/install_main.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usermanual/userman_main.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing and Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">For Devs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="environment.html">Setting up your development environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html">Front End Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#modularity">Modularity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#building-frontend-code">Building Frontend Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#implementing-with-backbone">Implementing with Backbone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#creating-your-own-backbone-view">Creating Your Own Backbone View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front_end_code.html#tl-dr-or-7-quick-steps-to-creating-a-backbone-view-in-ka-lite">TL;DR (or 7 quick steps to creating a Backbone View in KA Lite)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javascript_testing.html">Javascript Unit Tests</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Behavior-Driven Integration Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-integration-tests">Running the integration tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#anatomy-of-the-integration-tests">Anatomy of the integration tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#suggested-workflow-for-writing-new-features">Suggested workflow for writing new features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selenium-gotchas-aka-race-conditions">Selenium gotchas (aka race conditions)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling KA Lite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utility.html">Developer Utility Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Logging</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">KA Lite</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Developer Docs</a> &raquo;</li>
+      
+    <li>Behavior-Driven Integration Tests</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="behavior-driven-integration-tests">
+<h1>Behavior-Driven Integration Tests<a class="headerlink" href="#behavior-driven-integration-tests" title="Permalink to this headline">¶</a></h1>
+<p>Part of our comprehensive testing intiative is to write better integration tests.
+The goals are to:</p>
+<ol class="arabic simple">
+<li>Stop using browser driven integration tests as unit tests. (Such slow...)</li>
+<li>Have robust integration tests that don&#8217;t fail randomly.</li>
+<li>Use behavior-driven tests to clarify design goals of features.</li>
+</ol>
+<p>We&#8217;re using <a class="reference external" href="http://pythonhosted.org/behave/">behave 1.2.4</a> to run our integration tests.
+Behavior driven tests are specified using the Gherkin specification language, and then behave builds a test suite from step implementations that are directly mapped to clauses from the Gherkin specification.</p>
+<div class="section" id="running-the-integration-tests">
+<h2>Running the integration tests<a class="headerlink" href="#running-the-integration-tests" title="Permalink to this headline">¶</a></h2>
+<p>To get the dependencies run <code class="docutils literal"><span class="pre">`pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">dev_requirements.txt`</span></code>. This should install the correct version of behave. Selenium is also required but is currently included in our python-packages directory.</p>
+<p>To run the tests simply run <code class="docutils literal"><span class="pre">`python</span> <span class="pre">kalitectl.py</span> <span class="pre">manage</span> <span class="pre">test`</span></code> just like you used to. This will automatically search out tests using both the unit test framework and the behave framework. You can specify apps, but right now there&#8217;s no way to just run integration tests.</p>
+</div>
+<div class="section" id="anatomy-of-the-integration-tests">
+<h2>Anatomy of the integration tests<a class="headerlink" href="#anatomy-of-the-integration-tests" title="Permalink to this headline">¶</a></h2>
+<p>The test command will look inside each app for a <code class="docutils literal"><span class="pre">`features`</span></code> directory. Inside that directory should be one or more <code class="docutils literal"><span class="pre">`[name].feature`</span></code> files written in the Gherkin specification language. See <a class="reference external" href="http://pythonhosted.org/behave/tutorial.html#feature-files">the behave docs</a> for more details on Gherkin, or look in the <code class="docutils literal"><span class="pre">`control_panel`</span></code> app, where your humble author has attempted to provide some examples.</p>
+<p>The test runner will parse the <code class="docutils literal"><span class="pre">`.feature`</span></code> files and attempt to build a test suite from step specifications found in any python files (the name is irrelevant) in the <code class="docutils literal"><span class="pre">`steps`</span></code> subdirectory. There is a 1-to-1 mapping between the clauses you write in the Gherkin specification and the steps you implement, so it can save you time to reuse clauses. Steps can also be <a class="reference external" href="http://pythonhosted.org/behave/api.html#step-parameters">templated</a> to match clauses that follow a pattern.</p>
+<p>You can also set up the test environment at key stages in the testing process by writing hooks in an <code class="docutils literal"><span class="pre">`environment.py`</span></code> file in the <code class="docutils literal"><span class="pre">`features`</span></code> directory. In the <code class="docutils literal"><span class="pre">`control_panel`</span></code> example, the <code class="docutils literal"><span class="pre">`before_feature`</span></code> function is defined to log the testing user in as an admin before each feature tagged with the <code class="docutils literal"><span class="pre">`&#64;as_admin`</span></code> tag in the specification. In <code class="docutils literal"><span class="pre">`testing/base_environment.py`</span></code>, the <code class="docutils literal"><span class="pre">`before_all`</span></code> and <code class="docutils literal"><span class="pre">`after_all`</span></code> hooks are defined to set up a Selenium WebDriver instance on the context object that is passed around by the test runner. This file is intended to be used as a base for all the integration tests, so if there is some setup common to all integration tests then put it there. You can then import those functions in the <code class="docutils literal"><span class="pre">`environment.py`</span></code> of specific apps, and extend or overwrite as necessary.</p>
+<p>Finally, in <code class="docutils literal"><span class="pre">`testing/behave_helpers.py`</span></code> you&#8217;ll find various functions that should be generally useful for all integration tests. If you find yourself wishing you had a nice useful function, add it here. In order to avoid reproducing functionality while we phase out the old integration tests, if some functionality already exists in the form of a mixin, you should import it into that file and wrap it in a new function. Be very reticent about importing mixin code! A good rule of thumb is to glance at how something is implemented in the mixins first, and only import it if it&#8217;s not trivial to reproduce. Only re-write if there&#8217;s <em>no</em> chance of the new code producing an error! The main goal is to avoid maintaining two sets of code.</p>
+</div>
+<div class="section" id="suggested-workflow-for-writing-new-features">
+<h2>Suggested workflow for writing new features<a class="headerlink" href="#suggested-workflow-for-writing-new-features" title="Permalink to this headline">¶</a></h2>
+<p>Ideally you should:</p>
+<ol class="arabic simple">
+<li>Specify your integration tests.</li>
+<li>Write failing steps.</li>
+<li>Write code that makes your tests pass.</li>
+</ol>
+<p>In practice, at least try to specify the tests first. Then you can seek out assistance implementing the steps.</p>
+</div>
+<div class="section" id="selenium-gotchas-aka-race-conditions">
+<h2>Selenium gotchas (aka race conditions)<a class="headerlink" href="#selenium-gotchas-aka-race-conditions" title="Permalink to this headline">¶</a></h2>
+<p>Finding elements on the page can be subject to race conditions if the page is not yet completely loaded, or if the DOM changes in response to AJAX stuff. Selenium pprovides methods for finding elements with and without explicit waits. When in doubt, use a wait. If your app is AJAX-y, write testable code by putting in events or flags that Selenium can explicitly wait for. The Selenium <code class="docutils literal"><span class="pre">`get`</span></code> method of browsing will wait for the page to fully load. <em>Do not assume</em> that following links using e.g. the <code class="docutils literal"><span class="pre">`click`</span></code> method will wait for the page to load &#8211; <em>it does not</em>. To summarize:</p>
+<ol class="arabic simple">
+<li>Incorporate explicit flags in your code that Selenium can use in waits.</li>
+<li>Don&#8217;t use unsafe methods that don&#8217;t wait unless you&#8217;re 100% certain there&#8217;s no possibility for a race condition.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="profiling.html" class="btn btn-neutral float-right" title="Profiling KA Lite" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="javascript_testing.html" class="btn btn-neutral" title="Purpose and creation of Javascript Unit Tests in KA Lite" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, FLE.
+      Last updated on Mon, 02 May 2016 20:21:40 +0200.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

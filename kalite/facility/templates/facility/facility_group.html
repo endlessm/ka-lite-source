@@ -1,0 +1,35 @@
+{% extends "distributed/base_manage.html" %}
+{% load i18n %}
+
+{% block headjs %}{{ block.super }}
+    <script>
+        $(function () {
+            $('#facility_group').change(function(){
+                window.location.href = $("#facility_group option:selected").val();
+            });
+        });
+    </script>
+{% endblock headjs %}
+
+{% block content %}
+    {% block manage_nav %}{% endblock manage_nav %}
+    <h3 class="no-margin-top">{{ title }}</h3>
+
+    <form method="post" class="basic-form">
+        {% csrf_token %}
+
+        {% for field in form.hidden_fields %}
+            {{ field }}
+        {% endfor %}
+        {% for field in form.visible_fields %}
+            <p>
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}
+                <span class="helptext">{{ field.help_text }}</span>
+            </p>
+        {% endfor %}
+
+        <input type="submit" class="submit btn btn-default btn-sm" value="{% if group_id == 'new' %}{% trans 'Create group' %}{% else %}{% trans 'Update group' %}{% endif %}" />
+    </form>
+{% endblock content %}

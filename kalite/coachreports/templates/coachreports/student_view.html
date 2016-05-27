@@ -1,0 +1,45 @@
+{% extends "distributed/base_teach.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load my_filters %}
+
+{% block title %}{% trans "User report" %} {{ block.super }}{% endblock title%}
+{% block report_title %}{% trans "User report" %}{% endblock report_title %}
+
+{# Headjs needed so coachreporting app can import #}
+{% block headjs %}
+    {{ block.super }}
+    {# Inner block needed so that control panel can import the JS necessary #}
+    {% block student_report_js %}
+        <script src="{% static 'js/coachreports/bundles/bundle_student_progress.js' %}"></script>
+        <script>
+            var PLAYLIST_PROGRESS_URL = "{% url 'api_dispatch_list' resource_name='playlist_progress' %}";
+            var PLAYLIST_PROGRESS_DETAIL_URL = "{% url 'api_dispatch_list' resource_name='playlist_progress_detail' %}";
+            // Start the app on page load
+            $(function() {
+                var container_view = new window.StudentProgressContainerView({
+                    el: $("#student-progress-container"),
+                    user_id: "{{ student.id }}"
+                });
+            });
+        </script>
+
+    {% endblock student_report_js %}
+{% endblock headjs %}
+
+{% block headcss %}
+    {{ block.super }}
+    {# Re-import control-panel bootstrap so that styles within coach report look correct #}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/control_panel/student-report.css' %}" />
+{% endblock headcss %}
+
+{% block content %}
+    {{ block.super }}
+
+    {% block student_report %}
+        <div class="container">
+            <div id="student-progress-container"></div>
+        </div>
+    {% endblock student_report %}
+
+{% endblock content %}

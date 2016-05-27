@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced installation options &mdash; KA Lite 0.16 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="KA Lite 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="KA Lite Installation Guides" href="install_main.html"/>
+        <link rel="next" title="System requirements" href="system_requirements.html"/>
+        <link rel="prev" title="Release Notes" href="release_notes.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> KA Lite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="install_main.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install_all.html">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_all.html#mac-os-x">Mac OS X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_all.html#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_all.html#uninstalling">Uninstalling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Advanced Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#debian-ubuntu-subscribe-to-updates-through-a-ppa">Debian/Ubuntu: Subscribe to updates through a PPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-interface-for-debian-ubuntu">User interface for Debian/Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#development">Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generic-installation-pip-install">Generic installation (pip install)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installing-through-pip-or-with-setup-py">Installing through pip or with setup.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#static-version">Static version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#portable-tarballs-zip-files-with-setup-py">Portable tarballs / zip files with setup.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#specific-system-setups">Specific system setups</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#raspberry-pi-wi-fi">Raspberry Pi Wi-Fi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nginx-apache-setup">Nginx / Apache setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="system_requirements.html">System Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usermanual/userman_main.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_docs/contributing.html">Contributing and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_docs/index.html">For Devs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">KA Lite</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="install_main.html">KA Lite Installation Guides</a> &raquo;</li>
+      
+    <li>Advanced installation options</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="advanced-installation-options">
+<span id="advanced-installation"></span><h1>Advanced installation options<a class="headerlink" href="#advanced-installation-options" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Every time you install or update kalite, you should (re)run <code class="docutils literal"><span class="pre">kalite</span> <span class="pre">manage</span> <span class="pre">setup</span></code>
+to setup the database and download assessment items (video descriptions,
+exercises etc.).</p>
+</div>
+<div class="section" id="debian-ubuntu-subscribe-to-updates-through-a-ppa">
+<span id="ppa-installation"></span><h2>Debian/Ubuntu: Subscribe to updates through a PPA<a class="headerlink" href="#debian-ubuntu-subscribe-to-updates-through-a-ppa" title="Permalink to this headline">¶</a></h2>
+<p>We maintain a <a class="reference external" href="https://launchpad.net/~learningequality/+archive/ubuntu/ka-lite">PPA on Launchpad</a>
+and if you are connected to the internet, this will also give you automatic updates:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install software-properties-common python-software-properties
+sudo add-apt-repository ppa:learningequality/ka-lite
+sudo apt-get update
+sudo apt-get install ka-lite
+</pre></div>
+</div>
+</div>
+<div class="section" id="user-interface-for-debian-ubuntu">
+<span id="gtk-installation"></span><h2>User interface for Debian/Ubuntu<a class="headerlink" href="#user-interface-for-debian-ubuntu" title="Permalink to this headline">¶</a></h2>
+<p>Make sure you have the PPA added, then run:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install ka-lite-gtk
+</pre></div>
+</div>
+</div>
+<div class="section" id="development">
+<span id="development-installation"></span><h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<p>A guide recommending how to install KA Lite for development is available in
+<a class="reference internal" href="../developer_docs/environment.html#development-environment"><span>Setting up your development environment</span></a>.</p>
+</div>
+<div class="section" id="generic-installation-pip-install">
+<span id="pip-installation"></span><h2>Generic installation (pip install)<a class="headerlink" href="#generic-installation-pip-install" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installing-through-pip-or-with-setup-py">
+<h3>Installing through pip or with setup.py<a class="headerlink" href="#installing-through-pip-or-with-setup-py" title="Permalink to this headline">¶</a></h3>
+<p>For command line users with access to pip, you can install KA Lite from an
+online source like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>$&gt; pip install ka-lite
+</pre></div>
+</div>
+</div>
+<div class="section" id="static-version">
+<h3>Static version<a class="headerlink" href="#static-version" title="Permalink to this headline">¶</a></h3>
+<p>If you need to run KA Lite with static dependencies bundled and isolated from
+the rest of your environment, you can run:</p>
+<div class="highlight-python"><div class="highlight"><pre>$&gt; pip install ka-lite-static
+</pre></div>
+</div>
+</div>
+<div class="section" id="portable-tarballs-zip-files-with-setup-py">
+<h3>Portable tarballs / zip files with setup.py<a class="headerlink" href="#portable-tarballs-zip-files-with-setup-py" title="Permalink to this headline">¶</a></h3>
+<p>If you can&#8217;t install KA Lite on systems with the standard Windows/Mac/Linux installers,
+you can fetch the KA Lite python package from <a class="reference external" href="https://pypi.python.org/pypi/ka-lite-static">PyPi</a>.</p>
+<p>To unpack the package for installation, run:</p>
+<div class="highlight-python"><div class="highlight"><pre>$&gt; tar -xf ka-lite-static-0.16.0.tar.gz
+</pre></div>
+</div>
+<p>Once it&#8217;s unpacked, install it by entering the extracted directory and running:</p>
+<div class="highlight-python"><div class="highlight"><pre>$&gt; sudo python setup.py install.
+</pre></div>
+</div>
+<p>Beware that the PyPi sources do not contain assessment items, so you need to
+<a class="reference external" href="http://pantry.learningequality.org/downloads/ka-lite/0.16/content/contentpacks/en.zip">download the contentpack en.zip manually</a> (~650 MB).</p>
+</div>
+</div>
+<div class="section" id="specific-system-setups">
+<h2>Specific system setups<a class="headerlink" href="#specific-system-setups" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="raspberry-pi-wi-fi">
+<span id="raspberry-pi-wifi"></span><h3>Raspberry Pi Wi-Fi<a class="headerlink" href="#raspberry-pi-wi-fi" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Two Wi-Fi USB modules have been tested with KA Lite on the Raspberry Pi</p>
+<ul class="last simple">
+<li>Raspberry Pi WiPi adaptor</li>
+<li>Edimax EW-7811Un</li>
+</ul>
+</div>
+<p>In our tests, we found that the WiPi adaptor supported a higher number tablet connections.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The Raspberry Pi may crash if the USB adaptor is inserted or removed while the computer is switched on.</p>
+<ul class="last simple">
+<li>Make sure to shutdown and remove the power from the Raspberry Pi.</li>
+<li>Afterwards, insert the wireless USB adaptor.</li>
+<li>Lastly, switch the Raspberry Pi on.</li>
+</ul>
+</div>
+<ol class="arabic">
+<li><p class="first">Install the .deb package, see <a class="reference internal" href="install_all.html#raspberry-pi-install"><span>Raspberry Pi</span></a>.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Get the network configuration scripts.</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/learningequality/ka-lite-pi-scripts.git</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Install and configure the access point:</p>
+<div class="highlight-python"><div class="highlight"><pre>cd /opt/ka-lite-pi-scripts
+sudo ./configure.sh
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If using the Edimax EW-7811UN, ignore the &#8220;hostapdSegmentation fault&#8221; error.</p>
+</div>
+</li>
+<li><dl class="first docutils">
+<dt>Install the USB adaptor software.</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>If using the WiPi, run this command::</dt>
+<dd><p class="first last">cd /opt/ka-lite-pi-scripts
+sudo ./use_wipi.sh</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>If using the Edimax EW-7811Un, run this command:</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt/ka-lite-pi-scripts</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">./use_edimax.sh</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Complete the access point configuration</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">python</span> <span class="pre">./configure_network_interfaces.py</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">insserv</span> <span class="pre">hostapd</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Finally</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">reboot</span></code></li>
+<li>A wireless network named &#8220;kalite&#8221; should be available.</li>
+<li>Connect to this network</li>
+<li>If the KA Lite server is started, browse to 1.1.1.1</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="nginx-apache-setup">
+<h3>Nginx / Apache setup<a class="headerlink" href="#nginx-apache-setup" title="Permalink to this headline">¶</a></h3>
+<p>This section is written for the Django-knowledgable crowd.</p>
+<p>KA Lite includes a web server implemented in pure Python for serving the
+website, capable of handling hundreds of simultaneous users while using very
+little memory. So you don&#8217;t have to run Apache or Nginx for efficiency.</p>
+<p>Apache configuration, using mod_wsgi, example would work for an Ubuntu .deb
+installation:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;VirtualHost *:80&gt;
+    ServerName kalite.com
+    DocumentRoot /var/www/html/
+
+    Alias /static /var/www/.kalite/static
+    Alias /media /var/www/.kalite/media
+
+    WSGIScriptAlias / /usr/lib/python2.7/dist-packages/kalite/project/wsgi.py
+
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
+
+    ErrorLog ${APACHE_LOG_DIR}/kalite-error.log
+    CustomLog ${APACHE_LOG_DIR}/kalite-access.log combined
+&lt;/VirtualHost&gt;
+</pre></div>
+</div>
+<p>If you are using uwsgi+Nginx, this is the critical part of your uwsgi
+configuration, provided that you have installed kalite from PyPi or .deb:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">module</span> <span class="o">=</span> <span class="n">kalite</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">wsgi</span>
+</pre></div>
+</div>
+<p>Remember that kalite runs in user space and creates data files in that user&#8217;s
+home directory. A normal Debian/Ubuntu system has a www-data user for Apache
+which is the default user for mod_wsgi and will create database files, static
+files etc. for kalite in <code class="docutils literal"><span class="pre">/var/www/.kalite/</span></code>. If you run it as another user,
+it may be located somewhere else.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Log in as the Django application server&#8217;s user, e.g. www-data and
+initialize the kalite static files and database before anything you can
+run kalite with uwsgi / mod_wsgi !</p>
+</div>
+<p>Example of setting up kalite for the www-data user:</p>
+<div class="highlight-python"><div class="highlight"><pre>$&gt; sudo su -s /bin/bash www-data
+$&gt; kalite manage setup
+$&gt; exit
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="system_requirements.html" class="btn btn-neutral float-right" title="System requirements" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="release_notes.html" class="btn btn-neutral" title="Release Notes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, FLE.
+      Last updated on Mon, 02 May 2016 20:21:40 +0200.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

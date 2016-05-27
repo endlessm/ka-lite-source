@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: ka-lite-static
+Version: 0.16.5
+Summary: KA Lite is a light-weight web server for viewing and interacting with core Khan Academy content (videos and exercises) without needing an Internet connection. This is the static version, which bundles all dependencies. Recommended for a portable installation method.
+Home-page: https://www.learningequality.org
+Author: Foundation for Learning Equality
+Author-email: info@learningequality.org
+License: MIT
+Description: UNKNOWN
+Keywords: khan academy,offline,education,OER
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks

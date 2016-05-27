@@ -1,0 +1,780 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Administrator User Manual &mdash; KA Lite 0.16 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="KA Lite 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="User Manual" href="userman_main.html"/>
+        <link rel="next" title="Coach User Manual" href="userman_coach.html"/>
+        <link rel="prev" title="User Manual" href="userman_main.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> KA Lite
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installguide/install_main.html">Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="userman_main.html">User Manual</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Administrator User Manual</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#administrator-glossary">Administrator Glossary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-ka-lite-server">Running the KA Lite Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windows-or-osx-behind-a-firewall">Windows or OSX behind a Firewall</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-ka-lite">Accessing KA Lite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-ka-lite">Setting up KA Lite</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#registering-your-device-with-the-hub">Registering Your Device with the Hub</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-register-your-device-with-online-access-to-data">How to register your device with online access to data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#post-registration-setup">Post Registration Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-facility">Create a Facility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-a-facility">Delete a Facility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-management">User Management</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-learners">Adding Learners</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#permanently-deleting-learners">Permanently Deleting Learners</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-coaches">Adding Coaches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#permanently-deleting-coaches">Permanently Deleting Coaches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-group">Adding a Group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-a-group">Deleting a Group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#moving-a-user-to-a-new-group">Moving a User to a New Group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#removing-users-from-a-group">Removing Users from a Group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#group-summary-statistics">Group Summary Statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-user-information">Edit User Information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#allowing-other-users-to-connect">Allowing Other Users to Connect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#downloading-videos">Downloading Videos</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#downloading-individual-videos">Downloading Individual Videos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#downloading-videos-in-bulk">Downloading Videos in Bulk</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-languages">Adding Languages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#download-language-packs">Download Language Packs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-language-packs">Delete Language Packs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#restarting-your-server">Restarting your server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#restarting-your-server-windows">Restarting Your Server: Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restarting-your-server-linux">Restarting Your Server: Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restarting-your-server-mac">Restarting Your Server: Mac</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-settings">Configuration Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#running-ka-lite-with-your-own-settings">Running KA Lite with your own settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-base-settings">Changing base settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#available-settings">Available settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#most-common-settings">Most common settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-restrictions">User restrictions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#online-synchronization">Online Synchronization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="userman_coach.html">Coach User Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userman_learner.html">Learner User Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userman_main.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_docs/contributing.html">Contributing and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_docs/index.html">For Devs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">KA Lite</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="userman_main.html">User Manual</a> &raquo;</li>
+      
+    <li>Administrator User Manual</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="administrator-user-manual">
+<h1>Administrator User Manual<a class="headerlink" href="#administrator-user-manual" title="Permalink to this headline">¶</a></h1>
+<p><strong>Who is an &#8220;administrator&#8221;?</strong></p>
+<dl class="docutils">
+<dt>A person who :</dt>
+<dd><ul class="first last simple">
+<li>helps to plan and oversee a project using KA Lite</li>
+<li>installs and updates KA Lite</li>
+<li>can create Coach logins, Learner logins, download videos and language packs</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="administrator-glossary">
+<h2>Administrator Glossary<a class="headerlink" href="#administrator-glossary" title="Permalink to this headline">¶</a></h2>
+<p>If you choose to register online, these important terms will help you better understand the flow of data between your installations and the online data hub.</p>
+<dl class="docutils">
+<dt><strong>Sharing Network</strong></dt>
+<dd>A Sharing Network is a group of devices that share user data. This data is synced to the central server when an Internet connection is available, and then synced down onto other devices in the same Sharing Network.</dd>
+<dt><strong>Organization</strong></dt>
+<dd>An organization is a group of people responsible for administering a set of Sharing Networks. An organization can have multiple administrators and manage multiple sharing networks.</dd>
+<dt><strong>Facility</strong></dt>
+<dd>A facility is the physical space in which a device is located (e.g. a school or a computer lab in a community center). Learner, coach, and admin accounts are associated with a particular facility.</dd>
+<dt><strong>Device</strong></dt>
+<dd>A device should be able to run a KA Lite server (most computers) and other devices to be used as clients. One common configuration is using a Raspberry Pi or other inexpensive computer as a server and relatively cheap tablets as client devices. Tablets can access the servers through an access point, such as a Wi-Fi dongle, or some other networking device such as a router.</dd>
+<dt><strong>Web Browser</strong></dt>
+<dd>A program that retrieves and presents information resources on the World Wide Web. Popular web browsers include Internet Explorer, Google Chrome, Mozilla Firefox, and Safari.</dd>
+</dl>
+</div>
+<div class="section" id="running-the-ka-lite-server">
+<h2>Running the KA Lite Server<a class="headerlink" href="#running-the-ka-lite-server" title="Permalink to this headline">¶</a></h2>
+<p>At the very end of the setup you are prompted to run KA Lite. Make note of the command needed to run the server - usually just <code class="docutils literal"><span class="pre">kalite</span> <span class="pre">start</span></code>.</p>
+<div class="section" id="windows-or-osx-behind-a-firewall">
+<h3>Windows or OSX behind a Firewall<a class="headerlink" href="#windows-or-osx-behind-a-firewall" title="Permalink to this headline">¶</a></h3>
+<p>When you start KA Lite your operating system might prompt you to allow &#8220;Python.app&#8221; to accept incoming connections. The message dialogue may look like the following, depending on your operating system:</p>
+<img alt="../_images/acceptconnections.png" class="align-center" src="../_images/acceptconnections.png" />
+<p>Please allow the app to run. This will make it possible for the KA Lite application to be accessible by other computers in your local network.</p>
+</div>
+</div>
+<div class="section" id="accessing-ka-lite">
+<h2>Accessing KA Lite<a class="headerlink" href="#accessing-ka-lite" title="Permalink to this headline">¶</a></h2>
+<p>Once the server has started, you will be given two IP addresses that you can copy and paste into a web browser to to access KA Lite.</p>
+<ul class="simple">
+<li>To access KA Lite from the same machine where the server is installed use the <a class="reference external" href="http://127.0.0.1:8008">http://127.0.0.1:8008</a> IP address.</li>
+<li>In order to access KA Lite from other machines in your local network, use the second IP address (different from the above) listed in Terminal after running <cite>kalite start</cite>.</li>
+</ul>
+</div>
+<div class="section" id="setting-up-ka-lite">
+<h2>Setting up KA Lite<a class="headerlink" href="#setting-up-ka-lite" title="Permalink to this headline">¶</a></h2>
+<p>Once you have successfully installed KA Lite, the installation script will give you a URL (<a class="reference external" href="http://127.0.0.1:8008/">http://127.0.0.1:8008/</a>) to visit so that you can open KA Lite and login for the first time.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Copy and paste the URL into a web browser. The KA Lite application should show up.</li>
+<li>Login to KA Lite using the username and password you created during the installation process.</li>
+</ol>
+<ul class="simple">
+<li>If you have forgotten the username/password combination, simply run <code class="docutils literal"><span class="pre">kalite</span> <span class="pre">manage</span> <span class="pre">createsuperuser</span></code> in your Terminal.</li>
+</ul>
+</div></blockquote>
+<img alt="../_images/6a4db825f084e8a0b3bd7fbbfa0ce381.png" class="screenshot" src="../_images/6a4db825f084e8a0b3bd7fbbfa0ce381.png" />
+<p>Once you’ve logged in, the next step in the setup process is to register your device with the KA Lite Hub.</p>
+<div class="section" id="registering-your-device-with-the-hub">
+<h3>Registering Your Device with the Hub<a class="headerlink" href="#registering-your-device-with-the-hub" title="Permalink to this headline">¶</a></h3>
+<p>By registering your device with FLE, you can sync data back with our central data hub. This is useful for many reasons:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>The Project administrator can manage user accounts and view usage data from afar, without the need to physically visit the offline device.</li>
+<li>Syncing back usage data can inform the FLE team of multiple users in a certain geographic region, and we can connect people that might be able to help one another.</li>
+<li>It helps FLE and our partners understand where and how the software is being used, so we can keep adding features that support you!</li>
+</ol>
+</div></blockquote>
+<p>You will have two options:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><strong>One click registration</strong>. This is the perfect option for individual users who just want to get KA Lite up and running fast, and don&#8217;t need online access to data. This allows you to get the registration process over in one-click without worrying about creating a login that you&#8217;re never going to use.</li>
+<li><strong>Register with online access to data</strong>. Choose this option if you&#8217;re an administrator of larger projects. This option allows you to access your uploaded data and connect multiple installations to the same account.</li>
+</ol>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you choose to one-click register, you will unable to register with online access to data later. (If you chose this option by accident and would like to start over, navigate to the folder KA Lite is installed and re-run the setup command).</p>
+</div>
+<img alt="../_images/87d784e4e34dcb41202e5497b66580c0.png" class="screenshot" src="../_images/87d784e4e34dcb41202e5497b66580c0.png" />
+<img alt="../_images/db082167ce73355be305c4c038a3e143.png" class="screenshot" src="../_images/db082167ce73355be305c4c038a3e143.png" />
+<img alt="../_images/c66fc3b0cdfa0eeef604afe36ad16659.png" class="screenshot" src="../_images/c66fc3b0cdfa0eeef604afe36ad16659.png" />
+</div>
+<div class="section" id="how-to-register-your-device-with-online-access-to-data">
+<h3>How to register your device with online access to data<a class="headerlink" href="#how-to-register-your-device-with-online-access-to-data" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You will need Internet access in order to perform these steps.</p>
+</div>
+<ol class="arabic simple">
+<li>Log into KA Lite with the username and password that you chose during setup.</li>
+<li>If you have not already registered your device, you will be redirected to a page that displays your options. Click the &#8220;Register with an online account now!&#8221; button to get started with the registration process.</li>
+</ol>
+<img alt="../_images/d316a315f5696daca0319be2cf63c9e0.png" class="screenshot" src="../_images/d316a315f5696daca0319be2cf63c9e0.png" />
+<p>If you do not see this page, click on the &#8220;Manage&#8221; tab. At the top of the page you should see a link similar to this, offering to register your device:</p>
+<img alt="../_images/registermessage.png" class="align-center" src="../_images/registermessage.png" />
+<p>You will be prompted to log in with your central server login credentials. Please note that these credentials are different from your login credentials created during setup. Click on the &#8220;Sign up here&#8221; link, and you will be redirected to a page that prompts you to create an account on the central server.</p>
+<img alt="../_images/signup.png" class="screenshot align-center" src="../_images/signup.png" />
+<p>Once you have filled out the form and submitted it, you will be sent an activation link to the email address you supplied.</p>
+</div>
+</div>
+<div class="section" id="post-registration-setup">
+<h2>Post Registration Setup<a class="headerlink" href="#post-registration-setup" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have registered successfully, it&#8217;s time to configure your local KA Lite installation to suit your needs. If any terms like &#8216;facility&#8217; or &#8216;device&#8217; become unclear, check the <a class="reference internal" href="#administrator-glossary">Administrator Glossary</a> for a quick reminder.</p>
+</div>
+<div class="section" id="create-a-facility">
+<h2>Create a Facility<a class="headerlink" href="#create-a-facility" title="Permalink to this headline">¶</a></h2>
+<p>KA Lite assumes that you are going to be using the software primarily in one place. This could be a school, a home, a community center, etc. We call this place a “facility”, and use it to help differentiate users who are syncing back data with our central data hub. In order to create a facility, follow the steps below.</p>
+<ol class="arabic simple">
+<li>Log in to KA Lite.</li>
+<li>Click the &#8220;Manage&#8221; tab at the top of the page.</li>
+</ol>
+<img alt="../_images/1febcea47bf94953e0b4351a7be2d7e8.png" class="screenshot" src="../_images/1febcea47bf94953e0b4351a7be2d7e8.png" />
+<ol class="arabic simple" start="3">
+<li>Make sure that the &#8220;Facilities&#8221; tab is selected.</li>
+<li>Under the Facilities section, click on &#8220;Add a new facility...&#8221;</li>
+</ol>
+<img alt="../_images/b1751d2f19bf6b100a0ae8d0cde7a0a6.png" class="screenshot" src="../_images/b1751d2f19bf6b100a0ae8d0cde7a0a6.png" />
+<ol class="arabic simple" start="5">
+<li>Fill in the information for all the fields you find below the map</li>
+<li>Click the &#8220;Save facility&#8221; button when you are finished.</li>
+</ol>
+<img alt="../_images/004ee879e2bb47d49377b861bf6659aa.png" class="screenshot" src="../_images/004ee879e2bb47d49377b861bf6659aa.png" />
+<ol class="arabic simple" start="7">
+<li>Once the information has been saved, you will be redirected back to the &#8220;Facilities&#8221; page, where you will see a message indicating that you have successfully saved your new facility.</li>
+</ol>
+</div>
+<div class="section" id="delete-a-facility">
+<h2>Delete a Facility<a class="headerlink" href="#delete-a-facility" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Log in to KA Lite.</li>
+<li>Click the &#8220;Manage&#8221; tab at the top of the page.</li>
+<li>Make sure that the &#8220;Facilities&#8221; tab is selected.</li>
+</ol>
+<img alt="../_images/2eeb2ed1e0731f6cc77bdc8189e58967.png" class="screenshot" src="../_images/2eeb2ed1e0731f6cc77bdc8189e58967.png" />
+<ol class="arabic simple" start="4">
+<li>Find the facility you would like to delete, and click the trash can icon to delete the facility.</li>
+</ol>
+<img alt="../_images/trash_facility.png" src="../_images/trash_facility.png" />
+<ol class="arabic simple" start="5">
+<li>You will be prompted to type in the name of the facility you wish to delete for confirmation.</li>
+<li>If your delete is successful, you will be redirected back to the &#8220;Facilities&#8221; page, where you will see a message indicating that you have successfully deleted the facility.</li>
+</ol>
+</div>
+<div class="section" id="user-management">
+<h2>User Management<a class="headerlink" href="#user-management" title="Permalink to this headline">¶</a></h2>
+<p>Coaches and learners are the other types of users that KA Lite supports. In order for them to be able to login, you need to create accounts for them.</p>
+<div class="section" id="adding-learners">
+<h3>Adding Learners<a class="headerlink" href="#adding-learners" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Log in to KA Lite.</li>
+<li>Click on the &#8220;Manage&#8221; tab at the top of the page.</li>
+<li>Make sure that the &#8220;Facilities&#8221; tab is selected.</li>
+<li>Select the facility that the learner will belong to.</li>
+</ol>
+<img alt="../_images/260c9ea74c87287fcac5dbef612d34d8.png" class="screenshot" src="../_images/260c9ea74c87287fcac5dbef612d34d8.png" />
+<ol class="arabic simple" start="5">
+<li>Under the &#8220;Learners&#8221; header, click on &#8220;Add a new Learner&#8221;.</li>
+</ol>
+<img alt="../_images/6ba892db1327a8645f88684c6ad58b46.png" class="screenshot" src="../_images/6ba892db1327a8645f88684c6ad58b46.png" />
+<ol class="arabic simple" start="6">
+<li>You will be redirected to a page that says &#8220;Add a new Learner&#8221;. Fill in all the information. The facility dropdown defaults to the facility you selected in the previous steps.</li>
+<li>Click &#8220;Create user&#8221;. You should be redirected to the &#8220;Facilities&#8221; page, where you will see a message indicating that you have successfully created a Learner user.</li>
+</ol>
+<img alt="../_images/57327a1a82d4572b4ed4d742a29c81aa.png" class="screenshot" src="../_images/57327a1a82d4572b4ed4d742a29c81aa.png" />
+</div>
+<div class="section" id="permanently-deleting-learners">
+<h3>Permanently Deleting Learners<a class="headerlink" href="#permanently-deleting-learners" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Log in to KA Lite.</li>
+<li>Click on the &#8220;Manage&#8221; tab at the top of the page.</li>
+<li>Make sure that the &#8220;Facilities&#8221; tab is selected.</li>
+<li>Under the &#8220;Facilities&#8221; header, select the facility the Learner belongs to.</li>
+<li>Under the &#8220;Learners&#8221; header, mark the box to the left of the Learner account you would like to delete.</li>
+</ol>
+<img alt="../_images/e1ddb22ed2ade1829458fd467f5f66e7.png" class="screenshot" src="../_images/e1ddb22ed2ade1829458fd467f5f66e7.png" />
+<ol class="arabic simple" start="6">
+<li>Press the &#8220;Delete Learners&#8221; button.</li>
+</ol>
+<img alt="../_images/dfad7260a5c36b7422bf2a07665afe36.png" class="screenshot" src="../_images/dfad7260a5c36b7422bf2a07665afe36.png" />
+<ol class="arabic simple" start="7">
+<li>You will be prompted to confirm your decision to delete. Press &#8220;OK&#8221; to proceed.</li>
+</ol>
+</div>
+<div class="section" id="adding-coaches">
+<h3>Adding Coaches<a class="headerlink" href="#adding-coaches" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Log in to KA Lite.</li>
+<li>Click on the &#8220;Manage&#8221; tab at the top of the page.</li>
+<li>Make sure that the &#8220;Facilities&#8221; tab is selected.</li>
+<li>Select the facility that the coach will belong to.</li>
+<li>Under the &#8220;Coaches&#8221; header, click on &#8220;Add a new coach&#8221;.</li>
+</ol>
+<img alt="../_images/5937cd9b87b5e7f062ce1ad780fdfdd3.png" class="screenshot" src="../_images/5937cd9b87b5e7f062ce1ad780fdfdd3.png" />
+<ol class="arabic simple" start="6">
+<li>You will be redirected to a page that says &#8220;Add a new coach&#8221;. Fill in all the information. The facility dropdown defaults to the facility you selected in the previous steps.</li>
+<li>Click the &#8220;Create User&#8221; button.</li>
+</ol>
+<img alt="../_images/1c47c76890be4305230319aa52b48c83.png" class="screenshot" src="../_images/1c47c76890be4305230319aa52b48c83.png" />
+<ol class="arabic simple" start="8">
+<li>If the user was successfully created, the page will reload with a message indicating that you have created the user.</li>
+</ol>
+</div>
+<div class="section" id="permanently-deleting-coaches">
+<h3>Permanently Deleting Coaches<a class="headerlink" href="#permanently-deleting-coaches" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Log in to KA Lite.</li>
+<li>Click on the &#8220;Manage&#8221; tab at the top of the page.</li>
+<li>Make sure that the &#8220;Facilities&#8221; tab is selected.</li>
+<li>Under the &#8220;Facilities&#8221; header, select the facility the coach belongs to.</li>
+<li>Under the &#8220;Coaches&#8221; header, mark the box to the left of the coach account you would like to delete.</li>
+</ol>
+<img alt="../_images/9bf236d34593bdbf6c092e608dc91a9f.png" class="screenshot" src="../_images/9bf236d34593bdbf6c092e608dc91a9f.png" />
+<ol class="arabic simple" start="6">
+<li>Press the &#8220;Delete Coaches&#8221; button.</li>
+</ol>
+<img alt="../_images/0ea6d393cbd0a961c91c4a73eb76443d.png" class="screenshot" src="../_images/0ea6d393cbd0a961c91c4a73eb76443d.png" />
+<ol class="arabic simple" start="7">
+<li>You will be prompted to confirm your decision to delete. Press &#8220;OK&#8221; to proceed.</li>
+</ol>
+</div>
+<div class="section" id="adding-a-group">
+<h3>Adding a Group<a class="headerlink" href="#adding-a-group" title="Permalink to this headline">¶</a></h3>
+<p>You can create groups within a facility. Each group can represent a classroom, a study group, or any other way you would like to group Learners. To create a group, follow the instructions below:</p>
+<ol class="arabic simple">
+<li>Log in to KA Lite.</li>
+<li>Click on the &#8220;Manage&#8221; tab at the top of the page.</li>
+<li>Make sure that the &#8220;Facilities&#8221; tab is selected.</li>
+<li>Select the facility that the group will belong to.</li>
+<li>Under the &#8220;Learner Groups&#8221; header, click on &#8220;Add a new group&#8221;.</li>
+</ol>
+<img alt="../_images/4ffe666b16aca697959079b1d49bfe81.png" class="screenshot" src="../_images/4ffe666b16aca697959079b1d49bfe81.png" />
+<ol class="arabic simple" start="6">
+<li>Fill out the name of the group, and provide a description.</li>
+<li>Click &#8220;create group&#8221;.</li>
+</ol>
+<img alt="../_images/10e2b5ae7e7e48b9b1771dd25d5b03cb.png" class="screenshot" src="../_images/10e2b5ae7e7e48b9b1771dd25d5b03cb.png" />
+<ol class="arabic simple" start="8">
+<li>You should be redirected back to the Facility page. If the group was successfully created, you will see it listed under the &#8220;Learner Groups&#8221; section.</li>
+</ol>
+</div>
+<div class="section" id="deleting-a-group">
+<h3>Deleting a Group<a class="headerlink" href="#deleting-a-group" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Log in to KA Lite.</li>
+<li>Click on the &#8220;Manage&#8221; tab at the top of the page.</li>
+<li>Make sure that the &#8220;Facilities&#8221; tab is selected.</li>
+<li>Select the facility that the group you would like to delete belongs to.</li>
+<li>Mark the box to the left of the group you would like to delete.</li>
+<li>Press the &#8220;Delete Groups&#8221; button under the &#8220;Learner Groups&#8221; header.</li>
+</ol>
+<img alt="../_images/a56c8dbd40323113f2fdf500e5952021.png" class="screenshot" src="../_images/a56c8dbd40323113f2fdf500e5952021.png" />
+<ol class="arabic simple" start="7">
+<li>You will be prompted to confirm your decision to delete. Press &#8220;OK&#8221; to proceed.</li>
+</ol>
+</div>
+<div class="section" id="moving-a-user-to-a-new-group">
+<h3>Moving a User to a New Group<a class="headerlink" href="#moving-a-user-to-a-new-group" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Navigate to the page for the facility the user belongs to.</li>
+<li>Under the &#8220;Learners&#8221; header, select the Learner you would like to move by clicking in the checkbox to the left of the Learner name.</li>
+</ol>
+<img alt="../_images/32b44b6848bd8d54b5072b747c3b1d0f.png" class="screenshot" src="../_images/32b44b6848bd8d54b5072b747c3b1d0f.png" />
+<ol class="arabic simple" start="3">
+<li>In the dropbox, select the group you would like to move the user to.</li>
+</ol>
+<img alt="../_images/fdfbbe6e30092722388be3414b20a0ac.png" class="screenshot" src="../_images/fdfbbe6e30092722388be3414b20a0ac.png" />
+<ol class="arabic simple" start="4">
+<li>Click the &#8220;Change Learner Groups&#8221; button.</li>
+</ol>
+<img alt="../_images/5cc9c0672c8c6ef3cbc8a33e071fdf70.png" class="screenshot" src="../_images/5cc9c0672c8c6ef3cbc8a33e071fdf70.png" />
+<ol class="arabic simple" start="5">
+<li>The page will refresh, with a message at the top indicating a successful move.</li>
+</ol>
+</div>
+<div class="section" id="removing-users-from-a-group">
+<h3>Removing Users from a Group<a class="headerlink" href="#removing-users-from-a-group" title="Permalink to this headline">¶</a></h3>
+<p>If you&#8217;d like to remove a user from a group without permanently deleting the user, please follow the instructions below:</p>
+<ol class="arabic simple">
+<li>Follow the same instructions as for &#8220;Moving a User to a New Group&#8221;, but select &#8220;Ungrouped&#8221; from the dropdown menu.</li>
+</ol>
+</div>
+<div class="section" id="group-summary-statistics">
+<h3>Group Summary Statistics<a class="headerlink" href="#group-summary-statistics" title="Permalink to this headline">¶</a></h3>
+<p>For each group, you should be able to view some statistics.</p>
+<ol class="arabic simple">
+<li>Navigate to the Learner Groups section of the facility you wish to look at.</li>
+<li>Click on the group that you wish to view.</li>
+</ol>
+<img alt="../_images/f19e30637f8749a6dd2a4b2311c9d914.png" class="screenshot" src="../_images/f19e30637f8749a6dd2a4b2311c9d914.png" />
+<ol class="arabic simple" start="3">
+<li>The statistics for the group should be displayed at the top of the page.</li>
+</ol>
+</div>
+<div class="section" id="edit-user-information">
+<h3>Edit User Information<a class="headerlink" href="#edit-user-information" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Navigate to the page for the facility that the user belongs in.</li>
+<li>Find the user you would like to edit.</li>
+<li>Click the blue pencil <img alt="bluepencil" src="../_images/bluepencil.png" /> icon next to the name of the user that you would like to edit.</li>
+<li>Make all necessary changes on the edit user page, and click &#8220;Update user&#8221;.</li>
+<li>You will be redirected to the previous page, with a message at the top indicating that your changes have been saved.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="allowing-other-users-to-connect">
+<h2>Allowing Other Users to Connect<a class="headerlink" href="#allowing-other-users-to-connect" title="Permalink to this headline">¶</a></h2>
+<p>In order for other users to be able to connect with the KA Lite from different computers, you will need to give them an IP address with which to access the software. The rest of the users should use the second IP address, different from the one you use (usually 127.0.0.1:8008 received during setup), to connect with KA Lite.</p>
+</div>
+<div class="section" id="downloading-videos">
+<h2>Downloading Videos<a class="headerlink" href="#downloading-videos" title="Permalink to this headline">¶</a></h2>
+<p>Now that you&#8217;ve created a facility and user accounts, it&#8217;s time to add video content to your local KA Lite installation! Since the videos can take up a large amount of space, you can choose to download only the videos that you need. If your device has enough space and you wish to download all of the videos, we recommend using the <a class="reference internal" href="#downloading-videos-in-bulk">Downloading Videos in Bulk</a>  option.</p>
+<div class="section" id="downloading-individual-videos">
+<h3>Downloading Individual Videos<a class="headerlink" href="#downloading-individual-videos" title="Permalink to this headline">¶</a></h3>
+<p>After registering your device:</p>
+<ol class="arabic simple">
+<li>Click the &#8220;Manage&#8221; tab at the top of the page.</li>
+<li>Click on the &#8220;Videos&#8221; tab.</li>
+</ol>
+<img alt="../_images/9a5e781ddcf92e4fc67e2bc60d990f30.png" class="screenshot" src="../_images/9a5e781ddcf92e4fc67e2bc60d990f30.png" />
+<ol class="arabic simple" start="3">
+<li>View subtopics by clicking on the subject of your choice. You can close them by clicking on the subject again.</li>
+<li>Mark the content you wish to download by clicking the checkbox to the left of the content name.</li>
+<li>Click the the first &#8220;Download n new selected video(s)&#8221; button (colored green) in the top left box of the page. The button should also show you the total number of videos you have selected to download, as well as the total size of the content.</li>
+<li>Once the download is completed, video content will be ready for Learners to watch!</li>
+</ol>
+</div>
+<div class="section" id="downloading-videos-in-bulk">
+<span id="bulk-video-downloads"></span><h3>Downloading Videos in Bulk<a class="headerlink" href="#downloading-videos-in-bulk" title="Permalink to this headline">¶</a></h3>
+<p>The full set of videos, if downloaded through the KA Lite interface, will occupy more than 150GB.
+If you want to download all the videos, we also have torrent files with resized videos (~33 GB for English). To fetch all
+the videos, <a class="reference external" href="https://learningequality.org/downloads/ka-lite/0.16/content/">download and open the appropriate torrent file</a>.</p>
+<p>Save the videos in the <code class="docutils literal"><span class="pre">CONTENT_ROOT</span></code> directory of your installation. By default, that
+is the <code class="docutils literal"><span class="pre">.kalite/content/</span></code> folder in the <em>home directory</em> of the user running KA Lite.</p>
+<p>On Windows, navigate to something like <code class="docutils literal"><span class="pre">C:\Documents</span> <span class="pre">and</span> <span class="pre">Settings\&lt;username&gt;\.kalite\content</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the drive where your <code class="docutils literal"><span class="pre">.kalite/</span></code> folder is located does not have enough free disk space,
+you can change the path of the <code class="docutils literal"><span class="pre">CONTENT_ROOT</span></code> in your <a class="reference internal" href="#id2">Configuration Settings</a>, and
+define a different folder where your want to store videos. Remember to move the files
+from your old <code class="docutils literal"><span class="pre">/content/</span></code> folder into the new one.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal"><span class="pre">.kalite</span></code> folder may be hidden on some systems, so you have to enable showing hidden
+files and folders in your file browser.</p>
+</div>
+<p>After you copied in the new video files or changed the <code class="docutils literal"><span class="pre">CONTENT_ROOT</span></code> path, you need to register those changes with KA Lite:</p>
+<ol class="arabic simple">
+<li>Click the &#8220;Manage&#8221; tab at the top of the page.</li>
+<li>Click on the &#8220;Videos&#8221; tab.</li>
+<li>Click the &#8220;Scan content folder for videos&#8221; button (third one, colored blue) in the top left box of the page.</li>
+</ol>
+<img alt="../_images/9c831d47ab856f6dea213885339f8793.png" class="screenshot" src="../_images/9c831d47ab856f6dea213885339f8793.png" />
+<ol class="arabic simple" start="4">
+<li>Once the scan is completed, video content will be ready for Learners to watch!</li>
+</ol>
+</div>
+</div>
+<div class="section" id="adding-languages">
+<h2>Adding Languages<a class="headerlink" href="#adding-languages" title="Permalink to this headline">¶</a></h2>
+<p>KA Lite content is offered in several languages. If your language is available you can download the <strong>contentpack</strong> for it with all the available subtitles and user interface translations. After you download and install the <strong>contentpack</strong> for a desired language, KA Lite will give you the option to download individual dubbed videos from that language&#8217;s Khan Academy YouTube channel. For more technical background about the new <strong>contentpacks</strong>, please refer to our <a class="reference external" href="https://github.com/learningequality/ka-lite/wiki/Content-packs">Wiki page</a>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you are upgrading from a previous KA Lite version, you <strong>MUST</strong> update all the languages you had previously <strong>AND</strong> restart your server. If you are unsure on how to do this, please see <a class="reference internal" href="#restarting-your-server"><span>Restarting your server</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are working on a fresh installation of version 0.16, you do not need to restart the server after downloading <strong>contentpacks</strong> in other languages.</p>
+</div>
+<div class="section" id="download-language-packs">
+<h3>Download Language Packs<a class="headerlink" href="#download-language-packs" title="Permalink to this headline">¶</a></h3>
+<p>To download language packs:</p>
+<ol class="arabic simple">
+<li>From the &#8220;Manage&#8221; page, click on the &#8220;Language&#8221; tab.</li>
+<li>Select the language pack you wish to download by selecting from the drop-down menu.</li>
+</ol>
+<img alt="../_images/45f197e49bdfbe3958a5da76510f96fd.png" class="screenshot" src="../_images/45f197e49bdfbe3958a5da76510f96fd.png" />
+<ol class="arabic simple" start="3">
+<li>Click the &#8220;Get Language Pack&#8221; button.</li>
+</ol>
+<img alt="../_images/6bfeab25adee7e88d404ab59a81f27cb.png" class="screenshot" src="../_images/6bfeab25adee7e88d404ab59a81f27cb.png" />
+<ol class="arabic simple" start="4">
+<li>Once the download finishes, you can see your language in the &#8220;Installed Languages&#8221;. If you are upgrading from a previous version of KA Lite, you <strong>MUST</strong> restart your server to make the new content/language pack available for your users. If you are unsure on how to do this, please see <a class="reference internal" href="#restarting-your-server"><span>Restarting your server</span></a>.</li>
+<li>After the server restart, learners and coaches will be able to switch their language to any of the installed language packs. Their default will be the default that you set by clicking on &#8220;Set as default&#8221;.</li>
+</ol>
+</div>
+<div class="section" id="delete-language-packs">
+<h3>Delete Language Packs<a class="headerlink" href="#delete-language-packs" title="Permalink to this headline">¶</a></h3>
+<p>To delete language packs:</p>
+<ol class="arabic simple">
+<li>Log in as the administrator.</li>
+<li>Click the &#8220;Languages&#8221; link in the navigation bar</li>
+<li>In the Installed Languages section, there is a button for deletion of each language.</li>
+</ol>
+<img alt="../_images/394d80548a460956916ecbf5306ee28b.png" class="screenshot" src="../_images/394d80548a460956916ecbf5306ee28b.png" />
+</div>
+</div>
+<div class="section" id="restarting-your-server">
+<span id="id1"></span><h2>Restarting your server<a class="headerlink" href="#restarting-your-server" title="Permalink to this headline">¶</a></h2>
+<p>When you make configuration changes such as changing the filepath for your video content, you may need to restart your server for changes to take effect. Remember that this will cause KA Lite to become inaccessible to users until the server is running again, but it will not delete any user accounts or information that you have configured during setup.</p>
+<p>Restart process varies depending on the OS you are running the KA Lite server on.</p>
+<div class="section" id="restarting-your-server-windows">
+<h3>Restarting Your Server: Windows<a class="headerlink" href="#restarting-your-server-windows" title="Permalink to this headline">¶</a></h3>
+<p>In the system tray, right click on the KA Lite icon. Click the &#8220;Stop Server&#8221; item in the context menu. Right click on the KA Lite icon in the system tray again, and click &#8220;Start Server&#8221;. If the option is not clickable, wait a while and try again or restart your computer.</p>
+</div>
+<div class="section" id="restarting-your-server-linux">
+<h3>Restarting Your Server: Linux<a class="headerlink" href="#restarting-your-server-linux" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Open up your terminal. For most Linux distributions, you can do this by going to <strong>Menu -&gt; Accessories -&gt; Terminal</strong> or <strong>Applications menu -&gt; System -&gt; Terminal.</strong></li>
+<li>Type in <code class="docutils literal"><span class="pre">kalite</span> <span class="pre">restart</span></code>. This should stop the server, then attempt to restart it again. The process may take up to a few minutes.</li>
+<li>Once you see the script that begins with <code class="docutils literal"><span class="pre">To</span> <span class="pre">access</span> <span class="pre">KA</span> <span class="pre">Lite</span> <span class="pre">from</span> <span class="pre">another</span> <span class="pre">connected</span> <span class="pre">computer,</span> <span class="pre">try</span> <span class="pre">the</span> <span class="pre">following</span> <span class="pre">address(es):</span></code> .... you will know that your KA Lite server has been successfully restarted.</li>
+</ol>
+</div>
+<div class="section" id="restarting-your-server-mac">
+<h3>Restarting Your Server: Mac<a class="headerlink" href="#restarting-your-server-mac" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Open up your terminal. You may do this by navigating to the magnifying glass <img alt="magglass" src="../_images/magglass.png" /> at the top right corner of your screen, and typing in &#8220;Terminal&#8221;, then hitting &#8220;Enter&#8221; on your keyboard.</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/search.png"><img alt="../_images/search.png" class="align-center" src="../_images/search.png" style="width: 700px;" /></a>
+<ol class="arabic simple">
+<li>Your terminal should be opened up. It should look a little something like the following:</li>
+</ol>
+<img alt="../_images/terminal.png" class="align-center" src="../_images/terminal.png" />
+<ol class="arabic simple">
+<li>Type in <code class="docutils literal"><span class="pre">kalite</span> <span class="pre">restart</span></code>. This should stop the server, then attempt to restart it again. The process may take up to a few minutes.</li>
+<li>Once you see the script that begins with <code class="docutils literal"><span class="pre">To</span> <span class="pre">access</span> <span class="pre">KA</span> <span class="pre">Lite</span> <span class="pre">from</span> <span class="pre">another</span> <span class="pre">connected</span> <span class="pre">computer,</span> <span class="pre">try</span> <span class="pre">the</span> <span class="pre">following</span> <span class="pre">address(es):</span></code> .... you will know that your KA Lite server has been successfully restarted.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="configuration-settings">
+<span id="id2"></span><h2>Configuration Settings<a class="headerlink" href="#configuration-settings" title="Permalink to this headline">¶</a></h2>
+<p>Once you have deployed KA Lite to a computer, there are a number of ways you can customize the behavior of your installation. Below, you will find a list of these possible customizations with instructions or descriptions on how to do it.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Please follow these instructions carefully! Customizing the server incorrectly can break your installation. It can be very hard to find and undo the error.</p>
+</div>
+<div class="section" id="running-ka-lite-with-your-own-settings">
+<span id="id3"></span><h3>Running KA Lite with your own settings<a class="headerlink" href="#running-ka-lite-with-your-own-settings" title="Permalink to this headline">¶</a></h3>
+<p>In a text editor, open up <code class="docutils literal"><span class="pre">/home/user/.kalite/settings.py</span></code> (on Windows, locate something like
+<code class="docutils literal"><span class="pre">C:\Documents</span> <span class="pre">and</span> <span class="pre">Settings\&lt;username&gt;\.kalite</span></code>). That file is where you should
+put your custom settings, and KA Lite will load them automatically.</p>
+<p>You can also run the <code class="docutils literal"><span class="pre">kalite</span></code> with a completely different Python settings
+module by specifying <code class="docutils literal"><span class="pre">kalite</span> <span class="pre">&lt;command&gt;</span> <span class="pre">--settings=my_settings_module</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal"><span class="pre">.kalite</span></code> folder may be hidden on some systems, so you have to enable showing hidden
+files and folders in your file browser.</p>
+</div>
+</div>
+<div class="section" id="changing-base-settings">
+<h3>Changing base settings<a class="headerlink" href="#changing-base-settings" title="Permalink to this headline">¶</a></h3>
+<p>By default, <code class="docutils literal"><span class="pre">/home/user/.kalite/settings.py</span></code> will load <code class="docutils literal"><span class="pre">kalite.project.settings.base</span></code> which are the basic settings. But you can also load Raspberry Pi settings by changing the file to read something like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">kalite.project.settings.raspberry_pi</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c"># Put your settings here, e.g.</span>
+<span class="c"># MY_SETTING_VAR = 123</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="available-settings">
+<h2>Available settings<a class="headerlink" href="#available-settings" title="Permalink to this headline">¶</a></h2>
+<p>See above for instructions on where to configure these settings.</p>
+<div class="section" id="most-common-settings">
+<h3>Most common settings<a class="headerlink" href="#most-common-settings" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">DEBUG</span> <span class="pre">=</span> <span class="pre">&lt;True</span> <span class="pre">or</span> <span class="pre">False&gt;</span> <span class="pre">(default</span> <span class="pre">=</span> <span class="pre">False)</span></code>
+Enables debug mode. In case you run into technical issues, enable this setting before troubleshooting / reporting.</li>
+<li><code class="docutils literal"><span class="pre">CONTENT_ROOT</span> <span class="pre">=</span> <span class="pre">&quot;&lt;path</span> <span class="pre">to</span> <span class="pre">desired</span> <span class="pre">content</span> <span class="pre">folder&gt;&quot;</span> <span class="pre">(default=/home/user/.kalite/content)</span></code>
+This is the path that KA Lite will use to look for KA Lite video files to play.
+Change the path to another local directory to get video files from that directory.
+NB! Directory has to be writable for the user running the server in order to download videos.</li>
+<li><code class="docutils literal"><span class="pre">TIME_ZONE</span> <span class="pre">=</span> <span class="pre">&lt;desired</span> <span class="pre">time</span> <span class="pre">zone&gt;</span>&nbsp; <span class="pre">(default</span> <span class="pre">=</span> <span class="pre">&quot;America/Los_Angeles&quot;)</span></code>
+You can set this to be the local time zone for your installation. Choices can be found here.</li>
+<li><code class="docutils literal"><span class="pre">LANGUAGE_CODE</span> <span class="pre">=</span> <span class="pre">&quot;&lt;desired</span> <span class="pre">ISO</span> <span class="pre">639-1</span> <span class="pre">Language</span> <span class="pre">Code&gt;&quot;</span> <span class="pre">(default</span> <span class="pre">=</span> <span class="pre">&quot;en-us&quot;)</span></code>
+You can set this to the desired language code for this installation (All choices can be found here).  If there are translations available, our web server will show them in KA Lite. Soon, we hope to provide support for internationalized content inside the KA Lite interface.</li>
+<li><code class="docutils literal"><span class="pre">USE_I18N</span> <span class="pre">=</span> <span class="pre">&lt;True</span> <span class="pre">or</span> <span class="pre">False&gt;</span> <span class="pre">(default</span> <span class="pre">=</span> <span class="pre">True)</span></code>
+If you set this to False, our web server will make some optimizations so as to avoid loading internationalization tools. Things might run a little faster, but you won&#8217;t have support for translated content.</li>
+<li><code class="docutils literal"><span class="pre">USE_L10N</span> <span class="pre">=</span> <span class="pre">&lt;True</span> <span class="pre">or</span> <span class="pre">False&gt;</span> <span class="pre">(default</span> <span class="pre">=</span> <span class="pre">False)</span></code>
+By default, this is set to False. If you set this to True, Django will format dates, numbers and calendars according to the current locale. For example, January 5, 2000 would be 1/5/2000 if locale = &#8220;en-us&#8221; and 5/1/2000 if locale = &#8220;en-gb&#8221;</li>
+<li><code class="docutils literal"><span class="pre">USER_FACING_PORT</span> <span class="pre">=</span> <span class="pre">123</span></code>
+When KA Lite is running behind a proxy (for instance Nginx or Apache), you
+probably want users to be accessing KA Lite from a different port than the
+service itself is running from. Setting this option will change certain
+system messages to use a different port. It does not affect the port that
+KA Lite is using.</li>
+</ul>
+</div>
+<div class="section" id="user-restrictions">
+<h3>User restrictions<a class="headerlink" href="#user-restrictions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">LOCKDOWN</span> <span class="pre">=</span> <span class="pre">&lt;True</span> <span class="pre">or</span> <span class="pre">False&gt;</span> <span class="pre">(default</span> <span class="pre">=</span> <span class="pre">False)</span></code>
+With this setting, users must be logged in order to access videos &amp; exercises</li>
+<li><code class="docutils literal"><span class="pre">DISABLE_SELF_ADMIN</span> <span class="pre">=</span> <span class="pre">&lt;True</span> <span class="pre">or</span> <span class="pre">False&gt;</span> <span class="pre">(default</span> <span class="pre">=</span> <span class="pre">False)</span></code>
+Disables user sign ups.</li>
+</ul>
+</div>
+<div class="section" id="online-synchronization">
+<h3>Online Synchronization<a class="headerlink" href="#online-synchronization" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">USER_LOG_MAX_RECORDS</span> <span class="pre">=</span> <span class="pre">&lt;desired</span> <span class="pre">maxium</span> <span class="pre">for</span> <span class="pre">user</span> <span class="pre">log</span> <span class="pre">records&gt;</span> <span class="pre">(default</span> <span class="pre">=</span> <span class="pre">0)</span></code>
+When this is set to any non-zero number, we will record (and sync for online tracking) user login activity, summarized for every month (which is configurable, see below).  Default is set to 0, for efficiency purposes&#8211;but if you want to record this, setting to 1 is enough!  The # of records kept are not &#8220;summary&#8221; records, but raw records of every login.  These &#8220;raw&#8221; data are not synced, but are kept on your local machine only&#8211;there&#8217;s too many of them.  Currently, we have no specific report to view these data (though we may have for v0.10.1)</li>
+<li><code class="docutils literal"><span class="pre">USER_LOG_SUMMARY_FREQUENCY</span> <span class="pre">=</span> <span class="pre">&lt;desired</span> <span class="pre">frequency</span> <span class="pre">(number,</span> <span class="pre">amount</span> <span class="pre">of</span> <span class="pre">time)&gt;</span></code>
+<code class="docutils literal"><span class="pre">(default</span> <span class="pre">=</span> <span class="pre">(1,</span> <span class="pre">&quot;months&quot;)</span></code>
+This determines the granularity of how we summarize and store user log data.  One database row is kept for each student, on each KA Lite installation, for the defined time period.  Acceptable values are:
+(1, &#8220;months&#8221;), (2, &#8220;months&#8221;), (3, &#8220;months&#8221;), (6, &#8220;months&#8221;) - separate logged data for every month, 2 months, 3 months, or 6 months, respectively
+(1, &#8220;weeks&#8221;) - separate logged data for every week ** NOTE THIS MAY PRODUCE A LOT OF DATA **</li>
+<li><code class="docutils literal"><span class="pre">SYNC_SESSIONS_MAX_RECORDS</span> <span class="pre">=</span> <span class="pre">&lt;desired</span> <span class="pre">max</span> <span class="pre">records</span> <span class="pre">of</span> <span class="pre">sync</span> <span class="pre">sessions&gt;</span> <span class="pre">(default</span> <span class="pre">=</span> <span class="pre">10)</span></code>
+Every time your installation syncs data, we record the time of the sync, the # of successful logs that were uploaded and downloaded, and any failures.
+This setting is how many such records we keep on your local server, for display.
+When you log in to our online server, you will see a <em>full</em> history of these records.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="userman_coach.html" class="btn btn-neutral float-right" title="Coach User Manual" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="userman_main.html" class="btn btn-neutral" title="User Manual" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, FLE.
+      Last updated on Mon, 02 May 2016 20:21:40 +0200.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

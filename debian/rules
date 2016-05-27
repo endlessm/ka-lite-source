@@ -24,10 +24,10 @@ override_dh_auto_install:
 	dh_installman
 	# Copy the ka-lite build to ka-lite-raspberry-pi instead of re-building
 	cp -rup debian/ka-lite/usr debian/ka-lite-raspberry-pi/
-	# Copy the ka-lite build to ka-lite-bundle instead of re-building
-	cp -rup debian/ka-lite/usr debian/ka-lite-bundle/
-	# Prepare assessment items
-	bash -c debian/prepare_assessment_items.sh
+	# # Copy the ka-lite build to ka-lite-bundle instead of re-building
+	# cp -rup debian/ka-lite/usr debian/ka-lite-bundle/
+	# # Prepare assessment items
+	# bash -c debian/prepare_assessment_items.sh
 
 
 
@@ -39,7 +39,7 @@ override_dh_install:
 ifeq ($(filter stage1,$(DEB_BUILD_PROFILES)),)
 override_dh_installdeb:
 	dh_installdeb
-	perl -w debian/dh_installscripts-common -p ka-lite -p ka-lite-raspberry-pi -p ka-lite-bundle
+	perl -w debian/dh_installscripts-common -p ka-lite -p ka-lite-raspberry-pi
 endif
 
 # This is commented out because we depend on user input

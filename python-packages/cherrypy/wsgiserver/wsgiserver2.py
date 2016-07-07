@@ -1781,7 +1781,11 @@ class HTTPServer(object):
                     getattr(self, 'ssl_certificate_chain', None))
         
         # Select the appropriate socket
-        if isinstance(self.bind_addr, basestring):
+        self.socket = None
+        if os.environ.get('LISTEN_PID', None):
+            # systemd socket activation
+            self.socket = socket.fromfd(3, socket.AF_INET, socket.SOCK_STREAM)
+        elif isinstance(self.bind_addr, basestring):
             # AF_UNIX socket
             
             # So we can reuse the socket...
@@ -1807,22 +1811,23 @@ class HTTPServer(object):
                 else:
                     info = [(socket.AF_INET, socket.SOCK_STREAM,
                              0, "", self.bind_addr)]
-        
-        self.socket = None
-        msg = "No socket could be created"
-        for res in info:
-            af, socktype, proto, canonname, sa = res
-            try:
-                self.bind(af, socktype, proto)
-            except socket.error:
-                if self.socket:
-                    self.socket.close()
-                self.socket = None
-                continue
-            break
+
         if not self.socket:
-            raise socket.error(msg)
-        
+            msg = "No socket could be created"
+            for res in info:
+                af, socktype, proto, canonname, sa = res
+                try:
+                    self.bind(af, socktype, proto)
+                except socket.error, serr:
+                    msg = "%s -- (%s: %s)" % (msg, sa, serr)
+                    if self.socket:
+                        self.socket.close()
+                    self.socket = None
+                    continue
+                break
+            if not self.socket:
+                raise socket.error(msg)
+
         # Timeout so KeyboardInterrupt can be caught on Win32
         self.socket.settimeout(1)
         self.socket.listen(self.request_queue_size)

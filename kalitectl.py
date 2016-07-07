@@ -497,16 +497,18 @@ def start(debug=False, watch=False, daemonize=True, args=[], skip_job_scheduler=
     except NotRunning:
         pass
 
-    # Check that the port is available by creating a simple socket and see
-    # if it succeeds... if it does, the port is occupied.
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    connection_error = sock.connect_ex(('127.0.0.1', port))
-    if not connection_error:
-        sys.stderr.write(
-            "Port {0} is occupied. Please close the process that is using "
-            "it.\n".format(port)
-        )
-        sys.exit(1)
+    if not os.environ.get('LISTEN_PID', None):
+        # Check that the port is available by creating a simple socket and see
+        # if it succeeds... if it does, the port is occupied.
+        # Note: only do this for when not socket-activated
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        connection = sock.connect_ex(('127.0.0.1', port))
+        if not connection:
+            sys.stderr.write(
+                "Port {0} is occupied. Please close the process that is using "
+                "it.\n".format(port)
+            )
+            sys.exit(1)
 
     # Write current PID and optional port to a startup lock file
     with open(STARTUP_LOCK, "w") as f:
@@ -559,11 +561,15 @@ def start(debug=False, watch=False, daemonize=True, args=[], skip_job_scheduler=
 
     # Start cherrypy service
     cherrypy.config.update({
-        'server.socket_host': LISTEN_ADDRESS,
-        'server.socket_port': port,
         'server.thread_pool': 18,
-        'checker.on': False,
+        'checker.on': False
     })
+
+    if not os.environ.get('LISTEN_PID', None):
+        cherrypy.config.update({
+            'server.socket_host': LISTEN_ADDRESS,
+            'server.socket_port': port
+        })
 
     DjangoAppPlugin(cherrypy.engine).subscribe()
     if not watch:

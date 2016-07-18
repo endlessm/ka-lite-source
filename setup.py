@@ -341,40 +341,9 @@ if STATIC_BUILD:
 # It's not a build command with --static or it's not a build command at all
 else:
 
-    # If the dist-packages directory is non-empty
-    if os.listdir(STATIC_DIST_PACKAGES):
-        # If we are building something or running from the source
-        if DIST_BUILDING_COMMAND or (RUNNING_FROM_SOURCE and "install" in sys.argv):
-            sys.stderr.write((
-                "Installing from source or not building with --static, so clearing "
-                "out dist-packages: {}\n\nIf you wish to install a static version "
-                "from the source distribution, use setup.py install --static\n\n"
-                "ENTER to continue or CTRL+C to cancel\n\n"
-            ).format(STATIC_DIST_PACKAGES))
-            sys.stdin.readline()
-            shutil.rmtree(STATIC_DIST_PACKAGES)
-            os.mkdir(STATIC_DIST_PACKAGES)
-        else:
-            # There are distributed requirements in dist-packages, so ignore
-            # everything in the requirements.txt file
-            DIST_REQUIREMENTS = []
-            DIST_NAME = 'ka-lite-static'
-
-            if "ka-lite" in get_installed_packages():
-                raise RuntimeError(
-                    "Already installed ka-lite so cannot install ka-lite-static. "
-                    "Remove existing ka-lite-static packages, for instance using \n"
-                    "\n"
-                    "    pip uninstall ka-lite-static  # Standard\n"
-                    "    sudo apt-get remove ka-lite  # Ubuntu/Debian\n"
-                    "\n"
-                    "...or other possible installation mechanisms you may have "
-                    "been using."
-                )
-
     # No dist-packages/ and not building, so must be installing the dynamic
     # version
-    elif not DIST_BUILDING_COMMAND:
+    if not os.listdir(STATIC_DIST_PACKAGES) and not DIST_BUILDING_COMMAND:
         # Check that static version is not already installed
         if "ka-lite-static" in get_installed_packages():
                 raise RuntimeError(

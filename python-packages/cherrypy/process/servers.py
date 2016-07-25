@@ -111,6 +111,7 @@ Please see `Lighttpd FastCGI Docs
 of the possible configuration options.
 """
 
+import os
 import sys
 import time
 
@@ -208,10 +209,12 @@ class ServerAdapter(object):
                 raise self.interrupt
             time.sleep(.1)
         
-        # Wait for port to be occupied
-        if isinstance(self.bind_addr, tuple):
-            host, port = self.bind_addr
-            wait_for_occupied_port(host, port)
+        if not os.environ.get('LISTEN_PID', None):
+            # Wait for port to be occupied if not running via socket-activation
+            # (for socket-activation the port will be managed by systemd )
+            if isinstance(self.bind_addr, tuple):
+                host, port = self.bind_addr
+                wait_for_occupied_port(host, port)
     
     def stop(self):
         """Stop the HTTP server."""

@@ -1428,7 +1428,8 @@ class WorkerThread(threading.Thread):
             'Write Throughput': lambda s: s['Bytes Written'](s) / (s['Work Time'](s) or 1e-6),
         }
         threading.Thread.__init__(self)
-    
+        self.worker_busy = threading.Event()
+
     def run(self):
         self.server.stats['Worker Threads'][self.getName()] = self.stats
         try:
@@ -1442,8 +1443,10 @@ class WorkerThread(threading.Thread):
                 if self.server.stats['Enabled']:
                     self.start_time = time.time()
                 try:
+                    self.worker_busy.set()
                     conn.communicate()
                 finally:
+                    self.worker_busy.clear()
                     conn.close()
                     if self.server.stats['Enabled']:
                         self.requests_seen += self.conn.requests_seen

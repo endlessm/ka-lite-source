@@ -66,6 +66,7 @@ import socket
 import sys
 import time
 import traceback
+import threading
 
 # KALITE_DIR set, so probably called from bin/kalite
 if 'KALITE_DIR' in os.environ:
@@ -570,6 +571,27 @@ def start(debug=False, watch=False, daemonize=True, args=[], skip_job_scheduler=
             'server.socket_host': LISTEN_ADDRESS,
             'server.socket_port': port
         })
+
+    # idealy we'd have a setting element, but these are imported much later
+    # and it will require a much deeper change
+    idle_timeout = int(os.getenv("KALITE_IDLE_TIMEOUT", 0))
+    if idle_timeout:
+        cherrypy.engine.last_busy = time.time()
+        def check_connections():
+            for thread in threading.enumerate():
+                try:
+                    if thread.worker_busy.isSet():
+                        cherrypy.engine.last_busy = time.time()
+                except AttributeError:
+                    pass # do nothing, not a worker thread
+
+            idle = time.time() - cherrypy.engine.last_busy
+            if (idle > idle_timeout):
+                print ("Idle for %s, exiting" % idle_timeout)
+                # we need to do both to cleanly exit
+                stop()
+
+        cherrypy.process.plugins.Monitor(cherrypy.engine, check_connections, frequency=idle_timeout).subscribe()
 
     DjangoAppPlugin(cherrypy.engine).subscribe()
     if not watch:

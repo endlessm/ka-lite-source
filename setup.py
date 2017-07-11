@@ -55,6 +55,12 @@ if 'bdist_wheel' in sys.argv:
 # Path of setup.py, used to resolve path of requirements.txt file
 where_am_i = os.path.dirname(os.path.realpath(__file__))
 
+# Do not use an absolute path here when running this from inside the sources directory
+# to prevent generating an absolute path in the SOURCES.txt file, that will get distutils
+# failing to process setup.py build on Jenkins (no absolute paths allowed).
+if where_am_i == os.getcwd():
+    where_am_i = './'
+
 # Handle requirements
 RAW_REQUIREMENTS = open(os.path.join(where_am_i, 'requirements.txt'), 'r').read().split("\n")
 
